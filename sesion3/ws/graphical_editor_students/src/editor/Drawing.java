@@ -6,9 +6,13 @@ import figuras.Figura;
 
 public class Drawing 
 {
-	
-	ArrayList<Figura> figuras=new ArrayList<Figura>();
-	
+
+	ArrayList<Figura> figuras;
+
+	public Drawing(ArrayList<Figura> figuras) {
+		this.figuras=figuras;
+	}
+
 	public ArrayList<Figura> getFiguras() {
 		return figuras;
 	}

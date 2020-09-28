@@ -64,4 +64,16 @@ public class Circulo implements Figura {
 		this.acabada = acabada;
 	}
 
+	@Override
+	public boolean seHaPulsado(int xPulsado, int yPulsado) {
+		double distancia = Math.sqrt(Math.pow(xPulsado - x, 2) + Math.pow(yPulsado - y, 2));
+		return distancia < radio;
+	}
+
+	@Override
+	public void transladar(int x, int y) {
+		this.setX((this.getX()+x));
+		this.setY((this.getY()+y));
+	}
+
 }

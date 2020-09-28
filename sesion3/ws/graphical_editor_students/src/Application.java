@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 import editor.*;
+import figuras.Figura;
 import herramientas.Herramienta;
 import herramientas.HerramientaDeCreacionDeCirculo;
 import herramientas.HerramientaDeCreacionDeRectangulo;
@@ -16,12 +17,14 @@ public class Application
 	private PrintStream output;
 
 	//Herramientas
-	public HerramientaDeSeleccion herramientaDeSeleccion = new HerramientaDeSeleccion();
+	public HerramientaDeSeleccion herramientaDeSeleccion;
 	public HerramientaDeCreacionDeRectangulo herramientaDeCreacionDeRectangulo = new HerramientaDeCreacionDeRectangulo();
 	public HerramientaDeCreacionDeCirculo herramientaDeCreacionDeCirculo = new HerramientaDeCreacionDeCirculo();
 	public HerramientaDeCreacionDeTriangulo herramientaDeCreacionDeTriangulo = new HerramientaDeCreacionDeTriangulo();
 
 	public ArrayList<Herramienta> herramientas=new ArrayList<Herramienta>();
+
+	ArrayList<Figura> figuras=new ArrayList<Figura>();
 
 	public static void main(String[] args) throws IOException
 	{
@@ -30,12 +33,13 @@ public class Application
 
 	public void run() throws IOException
 	{
+		herramientaDeSeleccion = new HerramientaDeSeleccion(figuras);
 		herramientas.add(herramientaDeSeleccion);
 		herramientas.add(herramientaDeCreacionDeRectangulo);
 		herramientas.add(herramientaDeCreacionDeCirculo);
 		herramientas.add(herramientaDeCreacionDeTriangulo);
 
-		editor = new Editor(new Drawing(),herramientas);
+		editor = new Editor(new Drawing(figuras),herramientas,figuras);
 		input = new BufferedReader(new InputStreamReader(System.in));
 		output = System.out;
 

@@ -2,6 +2,7 @@ package editor;
 
 import java.util.ArrayList;
 
+import figuras.Figura;
 import herramientas.Herramienta;
 import herramientas.HerramientaDeSeleccion;
 
@@ -10,12 +11,14 @@ public class Editor
 	private Drawing drawing; // el documento de dibujo
 	public ArrayList<Herramienta> herramientas=new ArrayList<Herramienta>();
 	private Herramienta herramientaUtilizandose;
+	ArrayList<Figura> figuras;
 
-	public Editor(Drawing drawing, ArrayList<Herramienta> herramientas)
+	public Editor(Drawing drawing, ArrayList<Herramienta> herramientas, ArrayList<Figura> figuras)
 	{
 		setDrawing(drawing);
 		setHerramientas(herramientas);
 		setHerramientaUtilizandose(herramientas.get(0));
+		this.figuras=figuras;
 	}
 
 	public Drawing getDrawing()

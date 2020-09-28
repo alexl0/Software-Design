@@ -74,4 +74,20 @@ public class Triangulo implements Figura {
 		this.acabada=acabada;
 	}
 
+	@Override
+	public boolean seHaPulsado(int xPulsado, int yPulsado) {
+		return xPulsado==xa && yPulsado==ya || xPulsado==xb && yPulsado==yb ||xPulsado==xc && yPulsado==yc ;
+
+	}
+
+	@Override
+	public void transladar(int x, int y) {
+		this.setXa((this.getXa()+x));
+		this.setYa((this.getYa()+y));
+		this.setXb((this.getXb()+x));
+		this.setYb((this.getYb()+y));
+		this.setXc((this.getXc()+x));
+		this.setYc((this.getYc()+y));
+	}
+
 }

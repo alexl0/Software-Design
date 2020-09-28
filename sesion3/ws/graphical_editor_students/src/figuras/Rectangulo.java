@@ -49,5 +49,14 @@ public class Rectangulo implements Figura {
 	public void dibujar() {
 		System.out.println(" - Rectangulo: ("+getX()+", "+getY()+"), ancho = "+getLargo()+", alto = "+getAlto());
 	}
+	@Override
+	public boolean seHaPulsado(int xPulsado, int yPulsado) {
+		return (x <= xPulsado && xPulsado <= x + largo) && (y <= yPulsado && yPulsado <= y + alto);
+	}
+	@Override
+	public void transladar(int x, int y) {
+		this.setX((this.getX()+x));
+		this.setY((this.getY()+y));
+	}
 
 }
