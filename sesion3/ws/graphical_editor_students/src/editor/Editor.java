@@ -43,7 +43,7 @@ public class Editor
 		if(!(herramientaUtilizandose instanceof HerramientaDeSeleccion) && herramientaUtilizandose.getFigura().isAcabada()) {
 			drawing.getFiguras().add(herramientaUtilizandose.getFigura());
 			setHerramientaUtilizandose(herramientas.get(0));
-		}		
+		}
 
 		System.out.println("Herramienta seleccionada: " + herramientaUtilizandose.nombreHerramienta());
 		drawing.draw();

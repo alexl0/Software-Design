@@ -85,15 +85,12 @@ public class Application
 		if (action.equals("salir")) {
 			exit = true;
 		} else if (action.equals("seleccion")) {
-			// TODO: editor.______(...);
+			editor.soltar();
 		} else if (action.equals("rectangulo")) {
-			// TODO: editor.______(...);
 			editor.setHerramientaUtilizandose(herramientaDeCreacionDeRectangulo);
 		} else if (action.equals("circulo")) {
-			// TODO: editor.______(...);
 			editor.setHerramientaUtilizandose(herramientaDeCreacionDeCirculo);
 		} else if (action.equals("triangulo")) {
-			// TODO: editor.______(...);
 			editor.setHerramientaUtilizandose(herramientaDeCreacionDeTriangulo);
 		} else if (action.equals("pulsar")) {
 			try {
@@ -102,7 +99,6 @@ public class Application
 				String[] arguments = tokens[1].split("\\s*,\\s*");
 				int x = Integer.parseInt(arguments[0]);
 				int y = Integer.parseInt(arguments[1]);
-				// TODO: editor.______(...);
 				editor.pulsar(x,y);
 			} catch (NumberFormatException e) {
 				output.println("Error de sintaxis: se esperaban las coordenadas del punto en que se hizo clic: pulsar <x>, <y>");
@@ -114,13 +110,11 @@ public class Application
 				String[] arguments = tokens[1].split("\\s*,\\s*");
 				int x = Integer.parseInt(arguments[0]);
 				int y = Integer.parseInt(arguments[1]);
-				// TODO: editor.______(...);
 				editor.mover(x,y);
 			} catch (NumberFormatException e) {
 				output.println("Error de sintaxis: se esperaban las coordenadas del punto adonde se movió el cursor: mover <x>, <y>");
 			}
 		} else if (action.equals("soltar")) {
-			// TODO: editor.______(...);
 			editor.soltar();
 		} else if (action.equals("dibujar")) {
 			editor.drawDocument();
