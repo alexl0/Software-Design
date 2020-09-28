@@ -29,5 +29,10 @@ public class HerramientaDeCreacionDeRectangulo implements Herramienta{
 		return rectangulo;
 	}
 
+	@Override
+	public String nombreHerramienta() {
+		return "Herramienta de creacion de rectangulo";
+	}
+
 
 }

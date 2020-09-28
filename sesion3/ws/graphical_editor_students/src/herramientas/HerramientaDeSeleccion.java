@@ -22,5 +22,10 @@ public class HerramientaDeSeleccion implements Herramienta {
 		return null;
 	}
 
+	@Override
+	public String nombreHerramienta() {
+		return "Herramienta de seleccion";
+	}
+
 
 }

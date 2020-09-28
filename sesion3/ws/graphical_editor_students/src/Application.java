@@ -1,6 +1,8 @@
 import java.io.*;
+import java.util.ArrayList;
 
 import editor.*;
+import herramientas.Herramienta;
 import herramientas.HerramientaDeCreacionDeCirculo;
 import herramientas.HerramientaDeCreacionDeRectangulo;
 import herramientas.HerramientaDeCreacionDeTriangulo;
@@ -14,10 +16,12 @@ public class Application
 	private PrintStream output;
 
 	//Herramientas
-	HerramientaDeCreacionDeRectangulo herramientaDeCreacionDeRectangulo = new HerramientaDeCreacionDeRectangulo();
-	HerramientaDeCreacionDeCirculo herramientaDeCreacionDeCirculo = new HerramientaDeCreacionDeCirculo();
-	HerramientaDeCreacionDeTriangulo herramientaDeCreacionDeTriangulo = new HerramientaDeCreacionDeTriangulo();
-	HerramientaDeSeleccion herramientaDeSeleccion = new HerramientaDeSeleccion();
+	public HerramientaDeSeleccion herramientaDeSeleccion = new HerramientaDeSeleccion();
+	public HerramientaDeCreacionDeRectangulo herramientaDeCreacionDeRectangulo = new HerramientaDeCreacionDeRectangulo();
+	public HerramientaDeCreacionDeCirculo herramientaDeCreacionDeCirculo = new HerramientaDeCreacionDeCirculo();
+	public HerramientaDeCreacionDeTriangulo herramientaDeCreacionDeTriangulo = new HerramientaDeCreacionDeTriangulo();
+
+	public ArrayList<Herramienta> herramientas=new ArrayList<Herramienta>();
 
 	public static void main(String[] args) throws IOException
 	{
@@ -26,7 +30,12 @@ public class Application
 
 	public void run() throws IOException
 	{
-		editor = new Editor(new Drawing());
+		herramientas.add(herramientaDeSeleccion);
+		herramientas.add(herramientaDeCreacionDeRectangulo);
+		herramientas.add(herramientaDeCreacionDeCirculo);
+		herramientas.add(herramientaDeCreacionDeTriangulo);
+
+		editor = new Editor(new Drawing(),herramientas);
 		input = new BufferedReader(new InputStreamReader(System.in));
 		output = System.out;
 
@@ -79,13 +88,13 @@ public class Application
 			// TODO: editor.______(...);
 		} else if (action.equals("rectangulo")) {
 			// TODO: editor.______(...);
-			editor.setHerramienta(herramientaDeCreacionDeRectangulo);
+			editor.setHerramientaUtilizandose(herramientaDeCreacionDeRectangulo);
 		} else if (action.equals("circulo")) {
 			// TODO: editor.______(...);
-			editor.setHerramienta(herramientaDeCreacionDeCirculo);
+			editor.setHerramientaUtilizandose(herramientaDeCreacionDeCirculo);
 		} else if (action.equals("triangulo")) {
 			// TODO: editor.______(...);
-			editor.setHerramienta(herramientaDeCreacionDeTriangulo);
+			editor.setHerramientaUtilizandose(herramientaDeCreacionDeTriangulo);
 		} else if (action.equals("pulsar")) {
 			try {
 				// la siguiente línea es para que funcione independientemente de si las coordenadas
@@ -112,7 +121,7 @@ public class Application
 			}
 		} else if (action.equals("soltar")) {
 			// TODO: editor.______(...);
-			editor.soltar(herramientaDeSeleccion);
+			editor.soltar();
 		} else if (action.equals("dibujar")) {
 			editor.drawDocument();
 		} else if (action.equals("ayuda")) {

@@ -33,13 +33,6 @@ public class Rectangulo implements Figura {
 		this.alto = altitud;
 	}
 
-	/**
-	 * Ejemplo de salida:  - Rectßngulo: (50, 50), ancho = 50, alto = 50
-	 */
-	@Override
-	public void dibujar() {
-		System.out.println(" - Rectangulo: ("+getX()+", "+getY()+"), ancho = "+getLargo()+", alto = "+getAlto());
-	}
 	@Override
 	public boolean isAcabada() {
 		return acabada;
@@ -47,6 +40,14 @@ public class Rectangulo implements Figura {
 	@Override
 	public void setAcabada(boolean acabada) {
 		this.acabada=acabada;
+	}
+
+	/**
+	 * Ejemplo de salida:  - Rectßngulo: (50, 50), ancho = 50, alto = 50
+	 */
+	@Override
+	public void dibujar() {
+		System.out.println(" - Rectangulo: ("+getX()+", "+getY()+"), ancho = "+getLargo()+", alto = "+getAlto());
 	}
 
 }

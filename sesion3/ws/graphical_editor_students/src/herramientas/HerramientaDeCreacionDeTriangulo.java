@@ -45,4 +45,9 @@ public class HerramientaDeCreacionDeTriangulo implements Herramienta {
 		}
 	}
 
+	@Override
+	public String nombreHerramienta() {
+		return "Herramienta de creacion de triangulo";
+	}
+
 }

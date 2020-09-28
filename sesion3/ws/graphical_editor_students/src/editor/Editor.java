@@ -1,53 +1,68 @@
 package editor;
 
+import java.util.ArrayList;
+
 import herramientas.Herramienta;
 import herramientas.HerramientaDeSeleccion;
 
 public class Editor 
 {	
 	private Drawing drawing; // el documento de dibujo
+	public ArrayList<Herramienta> herramientas=new ArrayList<Herramienta>();
+	private Herramienta herramientaUtilizandose;
 
-	private Herramienta herramienta;
-
-	public Editor(Drawing drawing)
+	public Editor(Drawing drawing, ArrayList<Herramienta> herramientas)
 	{
 		setDrawing(drawing);
+		setHerramientas(herramientas);
+		setHerramientaUtilizandose(herramientas.get(0));
 	}
 
 	public Drawing getDrawing()
 	{
 		return drawing;
 	}
-
 	public void setDrawing(Drawing drawing)
 	{
 		this.drawing = drawing;
 	}
 
+	public ArrayList<Herramienta> getHerramientas() {
+		return herramientas;
+	}
+	public void setHerramientas(ArrayList<Herramienta> herramientas) {
+		this.herramientas = herramientas;
+	}
+
+	public void setHerramientaUtilizandose(Herramienta herramienta) {
+		this.herramientaUtilizandose=herramienta;
+	}
+
 	public void drawDocument()
 	{
-		System.out.println("Herramienta seleccionada: " + herramienta);
-		if(!(herramienta instanceof HerramientaDeSeleccion) && herramienta.getFigura().isAcabada())
-			drawing.getFiguras().add(herramienta.getFigura());
+		if(!(herramientaUtilizandose instanceof HerramientaDeSeleccion) && herramientaUtilizandose.getFigura().isAcabada()) {
+			drawing.getFiguras().add(herramientaUtilizandose.getFigura());
+			setHerramientaUtilizandose(herramientas.get(0));
+		}		
 
+		System.out.println("Herramienta seleccionada: " + herramientaUtilizandose.nombreHerramienta());
 		drawing.draw();
 	}
 
-	public void setHerramienta(Herramienta herramienta) {
-		this.herramienta=herramienta;
-	}
-
 	public void pulsar(int x, int y) {
-		herramienta.pulsar(x,y);
+		herramientaUtilizandose.pulsar(x,y);
 	}
 
 	public void mover(int x, int y) {
-		herramienta.mover(x,y);
+		herramientaUtilizandose.mover(x,y);
 	}
 
-	public void soltar(HerramientaDeSeleccion herramientaDeSeleccion) {
-		drawing.getFiguras().add(herramienta.getFigura());
-		setHerramienta(herramientaDeSeleccion);
+	public void soltar() {
+		if(!(herramientaUtilizandose instanceof HerramientaDeSeleccion) && herramientaUtilizandose.getFigura().isAcabada()) {
+			drawing.getFiguras().add(herramientaUtilizandose.getFigura());
+			setHerramientaUtilizandose(herramientas.get(0));
+		}
+		setHerramientaUtilizandose(herramientas.get(0));
 	}
 
 

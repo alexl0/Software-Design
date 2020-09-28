@@ -30,4 +30,9 @@ public class HerramientaDeCreacionDeCirculo implements Herramienta {
 		}
 	}
 
+	@Override
+	public String nombreHerramienta() {
+		return "Herramienta de creacion de circulo";
+	}
+
 }
