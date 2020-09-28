@@ -1,7 +1,9 @@
 import java.io.*;
 
 import editor.*;
+import herramientas.HerramientaDeCreacionDeCirculo;
 import herramientas.HerramientaDeCreacionDeRectangulo;
+import herramientas.HerramientaDeCreacionDeTriangulo;
 import herramientas.HerramientaDeSeleccion;
 
 public class Application 
@@ -10,22 +12,24 @@ public class Application
 	private boolean exit;
 	private BufferedReader input;
 	private PrintStream output;
-	
+
 	//Herramientas
 	HerramientaDeCreacionDeRectangulo herramientaDeCreacionDeRectangulo = new HerramientaDeCreacionDeRectangulo();
+	HerramientaDeCreacionDeCirculo herramientaDeCreacionDeCirculo = new HerramientaDeCreacionDeCirculo();
+	HerramientaDeCreacionDeTriangulo herramientaDeCreacionDeTriangulo = new HerramientaDeCreacionDeTriangulo();
 	HerramientaDeSeleccion herramientaDeSeleccion = new HerramientaDeSeleccion();
-	
+
 	public static void main(String[] args) throws IOException
 	{
 		new Application().run();
 	}
-	
+
 	public void run() throws IOException
 	{
 		editor = new Editor(new Drawing());
 		input = new BufferedReader(new InputStreamReader(System.in));
 		output = System.out;
-		
+
 		showHelp();
 		while (!exit) {
 			askUser();
@@ -33,7 +37,7 @@ public class Application
 		output.println("¡Adios!");
 		return;
 	}
-	
+
 	private void showHelp()
 	{
 		output.println("");
@@ -42,14 +46,14 @@ public class Application
 		output.println("Otras acciones: dibujar - ayuda - salir");
 		output.println("-----------------------------------------------------------");
 	}
-	
+
 	private void askUser() throws IOException
 	{
 		output.print("> ");
 		output.flush();
 		String[] tokens = input.readLine().split("[ ]", 2);
 		String action = tokens[0];
-		
+
 		// Comprueba que a las acciones que no requieren parámetros, efectivamente no se les
 		// pase ninguno (por usabilidad, para que el usuario se dé cuenta de que la última 
 		// acción no funciona como él esperaba). Por ejemplo, si por equivocación tecleó:
@@ -68,7 +72,7 @@ public class Application
 				return;
 			}
 		}
-		
+
 		if (action.equals("salir")) {
 			exit = true;
 		} else if (action.equals("seleccion")) {
@@ -78,8 +82,10 @@ public class Application
 			editor.setHerramienta(herramientaDeCreacionDeRectangulo);
 		} else if (action.equals("circulo")) {
 			// TODO: editor.______(...);
+			editor.setHerramienta(herramientaDeCreacionDeCirculo);
 		} else if (action.equals("triangulo")) {
 			// TODO: editor.______(...);
+			editor.setHerramienta(herramientaDeCreacionDeTriangulo);
 		} else if (action.equals("pulsar")) {
 			try {
 				// la siguiente línea es para que funcione independientemente de si las coordenadas

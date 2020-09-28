@@ -13,7 +13,6 @@ public class HerramientaDeCreacionDeRectangulo implements Herramienta{
 			rectangulo.setX(x);
 			rectangulo.setY(y);
 		}
-
 	}
 
 	@Override
@@ -21,6 +20,7 @@ public class HerramientaDeCreacionDeRectangulo implements Herramienta{
 		if(x>=0 && y>=0) {
 			rectangulo.setAlto(x);
 			rectangulo.setLargo(y);
+			rectangulo.setAcabada(true);
 		}
 	}
 

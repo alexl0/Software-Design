@@ -26,6 +26,10 @@ public class Editor
 
 	public void drawDocument()
 	{
+		System.out.println("Herramienta seleccionada: " + herramienta);
+		if(!(herramienta instanceof HerramientaDeSeleccion) && herramienta.getFigura().isAcabada())
+			drawing.getFiguras().add(herramienta.getFigura());
+
 		drawing.draw();
 	}
 
