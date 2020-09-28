@@ -1,6 +1,8 @@
 import java.io.*;
 
 import editor.*;
+import herramientas.HerramientaDeCreacionDeRectangulo;
+import herramientas.HerramientaDeSeleccion;
 
 public class Application 
 {
@@ -8,6 +10,10 @@ public class Application
 	private boolean exit;
 	private BufferedReader input;
 	private PrintStream output;
+	
+	//Herramientas
+	HerramientaDeCreacionDeRectangulo herramientaDeCreacionDeRectangulo = new HerramientaDeCreacionDeRectangulo();
+	HerramientaDeSeleccion herramientaDeSeleccion = new HerramientaDeSeleccion();
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -69,6 +75,7 @@ public class Application
 			// TODO: editor.______(...);
 		} else if (action.equals("rectangulo")) {
 			// TODO: editor.______(...);
+			editor.setHerramienta(herramientaDeCreacionDeRectangulo);
 		} else if (action.equals("circulo")) {
 			// TODO: editor.______(...);
 		} else if (action.equals("triangulo")) {
@@ -81,6 +88,7 @@ public class Application
 				int x = Integer.parseInt(arguments[0]);
 				int y = Integer.parseInt(arguments[1]);
 				// TODO: editor.______(...);
+				editor.pulsar(x,y);
 			} catch (NumberFormatException e) {
 				output.println("Error de sintaxis: se esperaban las coordenadas del punto en que se hizo clic: pulsar <x>, <y>");
 			}
@@ -92,11 +100,13 @@ public class Application
 				int x = Integer.parseInt(arguments[0]);
 				int y = Integer.parseInt(arguments[1]);
 				// TODO: editor.______(...);
+				editor.mover(x,y);
 			} catch (NumberFormatException e) {
 				output.println("Error de sintaxis: se esperaban las coordenadas del punto adonde se movió el cursor: mover <x>, <y>");
 			}
 		} else if (action.equals("soltar")) {
 			// TODO: editor.______(...);
+			editor.soltar(herramientaDeSeleccion);
 		} else if (action.equals("dibujar")) {
 			editor.drawDocument();
 		} else if (action.equals("ayuda")) {
