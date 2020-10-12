@@ -1,3 +1,4 @@
+package forms_students;
 import java.util.*;
 
 public class Formulario {

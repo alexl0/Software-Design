@@ -1,3 +1,4 @@
+package forms_students;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,18 +28,13 @@ public abstract class AbstractCampo implements Campo {
 				System.out.print(etiqueta + ": ");
 				texto = consola.readLine();
 
-				for (char ch : texto.toCharArray()) {
-					if (!condicion(ch)) {
-						valido = false;
-						break;
-					}
-				}
+				valido = condicion(texto);
 			} catch (IOException ex) {
 				System.out.println(ex);
 			}
 		} while (!valido);
 	}
 
-	abstract boolean condicion(char ch);
+	public abstract boolean condicion(String texto);
 
 }
