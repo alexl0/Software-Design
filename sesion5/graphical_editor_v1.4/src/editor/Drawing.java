@@ -14,6 +14,14 @@ public class Drawing
 {
 	private List<Figure> figures = new ArrayList<>();
 	
+	ArrayList<Figure> getFiguresCopy() {
+		return new ArrayList<Figure>(figures);
+	}
+	
+	void setFigures(List<Figure> figures) {
+		this.figures = figures;
+	}
+
 	/**
 	 * Guarda la selección actual del documento. En esta versión del documento
 	 * suponemos que sólo hay una figura seleccionada en cada momento.<p> 

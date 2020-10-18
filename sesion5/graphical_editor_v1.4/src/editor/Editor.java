@@ -1,6 +1,7 @@
 package editor;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import editor.tools.*;
 
@@ -11,16 +12,21 @@ public class Editor
 	 * tiene un único documento abierto en cada momento, pero cambiar esto sería trivial.
 	 */
 	private Drawing drawing = new Drawing();
-	
+
 	private PrintWriter output = new PrintWriter(System.out, true);
-	
+
 	public static boolean DEBUG = false;
-	
+
+	// Ejercicio 5 linea del tiempo
+	private ArrayList<ArrayList<Figure>>figures=new ArrayList<ArrayList<Figure>>();
+	//Posicion en la línea del tiempo (0 es momento actual, 1 es hace un movimiento, etc)
+	private int pos=0;
+
 	/**
 	 * La herramienta predeterminada, que en nuestro caso es la de selección.
 	 */
 	private Tool selectionTool;
-	
+
 	/**
 	 * La herramienta seleccionada actualmente en el editor. Dependiendo de
 	 * cuál sea ésta, el editor responderá de manera diferente ante los eventos
@@ -28,28 +34,48 @@ public class Editor
 	 * delegará en los métodos correspondientes de la herramienta actual.
 	 */
 	private Tool currentTool;
-	
+
 	public Editor()
 	{
 		currentTool = selectionTool = new SelectionTool(this);
 	}
-	
+
 	public Drawing getDrawing()
 	{
+		//Si ha habido cambio
+		if(figures.isEmpty() || figures.get(figures.size()-1).equals(drawing.getFiguresCopy()))
+			//Se añaden las nuevas figuras a la linea del tiempo
+			figures.add(drawing.getFiguresCopy());
 		return drawing;
 	}
-	
-	public void setDrawing(Drawing drawing)
+
+	public void undo() {
+		pos++;
+		if(figures.size()-1-pos>=0)
+			drawing.setFigures(figures.get(figures.size()-1-pos));
+		else
+			System.out.println("No se puede retroceder más");
+	}
+
+	public void redo() {
+		pos--;
+		if(figures.size()-1-pos>=0 && figures.size()-1-pos<figures.size())
+			drawing.setFigures(figures.get(figures.size()-1-pos));
+		else
+			System.out.println("No se puede avanzar más");
+	}
+
+	/*public void setDrawing(Drawing drawing)
 	{
 		this.drawing = drawing;
-	}	
-	
+	}*/	
+
 	public void drawDocument()
 	{
 		output.println("Herramienta seleccionada: " + currentTool);
 		drawing.draw(output);
 	}		
-	
+
 	public void selectTool(Tool tool)
 	{
 		if (tool == null)
@@ -57,7 +83,7 @@ public class Editor
 		currentTool = tool;
 		trace("Se seleccionó la herramienta: " + tool);
 	}
-	
+
 	/**
 	 * Las herramientas deben llamar a este método para avisar al editor que han
 	 * terminado y que éste lleve a cabo las acciones oportunas. En esta versión
@@ -84,26 +110,26 @@ public class Editor
 	{
 		selectTool(selectionTool);
 	}
-	
+
 	// Eventos del ratón
-	
+
 	public void clickedOn(int x, int y)
 	{
 		currentTool.clickOn(x, y);
 	}
-	
+
 	public void movedTo(int x, int y)
 	{
 		currentTool.moveTo(x, y);
 	}
-	
+
 	public void released()
 	{
 		currentTool.release();
 	}
-	
+
 	// Sencilla utilidad de traza
-	
+
 	public void trace(String message)
 	{
 		if (DEBUG)

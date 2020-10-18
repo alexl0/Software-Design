@@ -51,7 +51,7 @@ public class Console
 		output.println("");
 		output.println("Herramientas: seleccion - rectangulo - circulo - triangulo");
 		output.println("Acciones del ratón: pulsar <x>,<y> - mover <x>,<y> - soltar");
-		output.println("Otras acciones: dibujar - ayuda - salir");
+		output.println("Otras acciones: dibujar - ayuda - salir - undo - redo");
 		output.println("-----------------------------------------------------------");
 	}
 	
@@ -74,7 +74,8 @@ public class Console
 		if (action.equals("seleccion") || action.equals("rectangulo") ||
 				action.equals("circulo") || action.equals("triangulo") ||
 				action.equals("soltar") || action.equals("dibujar") ||
-				action.equals("ayuda") || action.equals("salir")) {
+				action.equals("ayuda") || action.equals("salir") ||
+				action.equals("undo") || action.equals("redo")) {
 			if (tokens.length > 1) {
 				output.printf("Error de sintaxis: \"%s\" no tiene parámetros\n", action);
 				return;
@@ -123,6 +124,10 @@ public class Console
 			editor.drawDocument();
 		} else if (action.equals("ayuda")) {
 			showHelp();
+		} else if (action.equals("undo")) {
+			editor.undo();
+		} else if (action.equals("redo")) {
+			editor.redo();
 		} else {
 			output.println("Acción desconocida");
 			showHelp();
