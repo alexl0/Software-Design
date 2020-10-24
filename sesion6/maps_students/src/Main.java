@@ -1,5 +1,8 @@
 import database.Database;
 import google.maps.*;
+import google.maps.mapElements.MonumentMapElementImpl;
+import google.maps.mapElements.PhotoMapElementImpl;
+import google.maps.mapElements.RestaurantMapElementImpl;
 import model.*;
 
 public class Main 
@@ -13,15 +16,15 @@ public class Main
 		System.out.println("\n 1. Se añaden varios elementos al mapa...");
 		
 		for (Monument monument : database.selectMonuments()) {
-			// map.add(monument);
+			 map.add(new MonumentMapElementImpl(monument));
 		}
 		
 		for (Photo photo : database.selectPhotos()) {
-			// map.add(photo);
+			map.add(new PhotoMapElementImpl(photo));
 		}
 
 		for (Restaurant restaurant : database.selectRestaurants()) {
-			// map.add(restaurant);
+			map.add(new RestaurantMapElementImpl(restaurant));
 		}
 
 		// 2. Se dibuja el mapa con los marcadores de los elementos añadidos
