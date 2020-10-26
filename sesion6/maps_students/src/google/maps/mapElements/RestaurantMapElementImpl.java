@@ -1,19 +1,36 @@
 package google.maps.mapElements;
+import google.maps.Coordinates;
 import google.maps.GPS;
+import google.maps.MapElement;
 import model.Restaurant;
 
-public class RestaurantMapElementImpl extends AbstractMapElementImpl {
+public class RestaurantMapElementImpl implements MapElement {
 
 	Restaurant restaurant;
-	
+
 	public RestaurantMapElementImpl(Restaurant restaurant) {
-		super(restaurant.getName(), GPS.getCoordinates(restaurant.getAddress()), restaurant.getName());
 		this.restaurant=restaurant;
 	}
 
 	@Override
-	public void open() {
-		System.out.println("Llamando a "+super.getTitle()+": "+restaurant.getPhone());
+	public String getTitle() {
+		return restaurant.getName();
 	}
+
+	@Override
+	public Coordinates getCoordinates() {
+		return GPS.getCoordinates(restaurant.getAddress());
+	}
+
+	@Override
+	public String getHTMLInfo() {
+		return restaurant.getName();
+	}
+
+	@Override
+	public void open() {
+		System.out.println("Llamando a "+restaurant.getName()+": "+restaurant.getPhone());
+	}
+
 
 }
