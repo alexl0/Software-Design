@@ -2,8 +2,14 @@ package outputs;
 
 import java.io.*;
 
+import outputs.SendMethods.Encriptar;
+import outputs.SendMethods.SendMethod;
+
 public class Bluetooth implements Output 
 {
+	private StringWriter stringWriter;
+	private SendMethod encriptar=new Encriptar();
+
 	public Bluetooth(String device) 
 	{
 		stringWriter = new StringWriter();
@@ -12,7 +18,7 @@ public class Bluetooth implements Output
 
 	public void send(char c) throws IOException 
 	{
-		stringWriter.append(c);
+		encriptar.send(c, stringWriter);
 	}
 
 	public void close() throws IOException 
@@ -21,5 +27,4 @@ public class Bluetooth implements Output
 		System.out.println("\n--- END   Bluetooth");
 	}
 
-	private StringWriter stringWriter;
 }

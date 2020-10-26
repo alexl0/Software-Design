@@ -2,8 +2,14 @@ package outputs;
 
 import java.io.*;
 
+import outputs.SendMethods.Encriptar;
+import outputs.SendMethods.SendMethod;
+
 public class Internet implements Output 
 {	
+	private StringWriter stringWriter = new StringWriter();
+	private SendMethod encriptar=new Encriptar();
+	
 	public Internet(String url) 
 	{
 		stringWriter = new StringWriter();
@@ -12,7 +18,7 @@ public class Internet implements Output
 	
 	public void send(char c) throws IOException 
 	{
-		stringWriter.append(c);
+		encriptar.send(c, stringWriter);
 	}
 
 	public void close() throws IOException 
@@ -21,5 +27,4 @@ public class Internet implements Output
 		System.out.println("\n--- END   Internet");
 	}
 
-	private StringWriter stringWriter = new StringWriter();
 }
