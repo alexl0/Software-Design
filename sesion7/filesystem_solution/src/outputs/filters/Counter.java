@@ -6,6 +6,8 @@ import outputs.*;
 
 public class Counter extends AbstractFilter 
 {
+	private int counter;
+
 	public Counter(Output output) 
 	{
 		super(output);
@@ -16,11 +18,10 @@ public class Counter extends AbstractFilter
 		output.send(c);
 		counter++;
 	}
-	
+
 	public int getCounter() 
 	{
 		return counter;
 	}
 
-	private int counter;
 }

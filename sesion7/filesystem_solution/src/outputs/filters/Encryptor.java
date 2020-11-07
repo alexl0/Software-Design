@@ -4,7 +4,7 @@ import java.io.*;
 
 import outputs.*;
 
-public class Encryptor extends AbstractFilter implements Output 
+public class Encryptor extends AbstractFilter
 {
 	public Encryptor(Output output) 
 	{

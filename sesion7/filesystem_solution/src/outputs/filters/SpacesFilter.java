@@ -4,8 +4,10 @@ import java.io.*;
 
 import outputs.*;
 
-public class SpacesFilter extends AbstractFilter implements Output 
+public class SpacesFilter extends AbstractFilter
 {
+	private char lastChar = 0;
+
 	public SpacesFilter(Output output) 
 	{
 		super(output);
@@ -20,5 +22,4 @@ public class SpacesFilter extends AbstractFilter implements Output
 		lastChar = c;
 	}
 
-	private char lastChar = 0;
 }

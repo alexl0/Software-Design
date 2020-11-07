@@ -12,7 +12,7 @@ public class Main
 	public static void main(String[] args) throws IOException 
 	{
 		FileSystem system = new FileSystem();
-
+		/*
 		//-- Diseño de Referencia
 		//   Cambios: Añadir 3 clases (LinesFilter, SpacesFilter y Encriptor)
 		//-------------------------------------------------------------------
@@ -20,14 +20,14 @@ public class Main
 		system.copyFile("privado.txt", new Encryptor(new Internet("156.17.11.196")));
 		system.copyFile("privado.txt", new Encryptor(new SpacesFilter(new Bluetooth("Galaxy de Raúl"))));
 
-		
+
 		//-- Modificación 1: que se pueda encriptar al escribir en fichero
 		//   Cambios: Ninguno
 		//-------------------------------------------------------------------
 		system.copyFile("privado.txt", new LinesFilter(new FileOutput("a.txt")));
 		system.copyFile("privado.txt", new LinesFilter(new Encryptor(new FileOutput("b.txt"))));
 
-		
+
 		//-- Modificación 2: en Internet que se pueda normalizar y/o eliminar espacios
 		//   Cambios: Ninguno
 		//-------------------------------------------------------------------
@@ -35,7 +35,7 @@ public class Main
 		system.copyFile("privado.txt", new SpacesFilter(new Internet("156.17.11.196")));
 		system.copyFile("privado.txt", new SpacesFilter(new LinesFilter(new Internet("156.17.11.196"))));
 
-		
+
 		//-- Modificación 3: Contar caracteres escritos
 		//   Cambios: Añadir clase Counter
 		//-------------------------------------------------------------------
@@ -47,7 +47,7 @@ public class Main
 		system.copyFile("privado.txt", new LinesFilter(counter = new Counter(new Internet("156.17.11.196"))));
 		System.out.println("Modificacion 3b: " + counter.getCounter());
 
-		
+
 		//-- Modificación 4: Poder contar caracteres también antes de normalizar
 		//   Cambios: ninguno
 		//-------------------------------------------------------------------
@@ -60,9 +60,30 @@ public class Main
 		system.copyFile("privado.txt", before = new Counter(new LinesFilter(after = new Counter((new Internet("156.17.11.196"))))));
 		System.out.println("Modificacion 4b: " + before.getCounter() + " -> " + after.getCounter());
 
-		//-- Modificación 5: Poder contar caracteres también antes de normalizar
+		//-- Modificación 5: Poder enviar a dos sitios distintos lo mismo
 		//   Cambios: Añadir clase Fork
 		//-------------------------------------------------------------------
 		system.copyFile("privado.txt", new Encryptor(new Fork(new Internet("156.17.11.196"), new Bluetooth("Galaxy de Raúl"))));
+		 */
+
+		//-- Opcional 1
+		//   Cambios: Ninguno
+		//-------------------------------------------------------------------
+		system.copyFile("prueba1.txt", new LinesFilter(new Fork(new FileOutput("a.txt"), new Encryptor(new FileOutput("b.txt")) )));
+
+		//-- Opcional 2
+		//   Cambios: Ninguno (nos podemos arreglar con un fork de forks)
+		//-------------------------------------------------------------------
+		system.copyFile("privado.txt", new Fork(
+				new LinesFilter(new FileOutput("privado2.txt")),
+				new Encryptor(new Fork(new Internet("156.17.11.196"),new SpacesFilter(new Bluetooth("Galaxy de Raúl"))))
+				));
+
+		//-- Opcional 3
+		//   Cambios: Añadir clase HashCalculator
+		//-------------------------------------------------------------------
+		HashCalculator hashCalculator = new HashCalculator (new Encryptor((new Internet("156.17.11.196"))));
+		system.copyFile("prueba1.txt", hashCalculator);
+		System.out.println("Opcional 3: " + hashCalculator.getHashMD5());		
 	}
 }
