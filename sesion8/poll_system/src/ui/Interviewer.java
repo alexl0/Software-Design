@@ -3,12 +3,13 @@ package ui;
 import java.io.*;
 
 import poll.Poll;
+import poll.PollInterface;
 
 public class Interviewer 
 {
 	private BufferedReader input;
 
-	public void fill(Poll poll) throws IOException 
+	public void fill(PollInterface poll) throws IOException 
 	{
 		input = new BufferedReader(new InputStreamReader(System.in));
 
