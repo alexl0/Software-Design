@@ -2,7 +2,7 @@ package collections;
 
 import java.util.*;
 
-public class Queue
+public class Queue implements Recorrible
 {
     private List<String> elements = new ArrayList<String>();
 

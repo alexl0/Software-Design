@@ -1,6 +1,6 @@
 package collections;
 
-public class LinkedList
+public class LinkedList implements Recorrible
 {
     private Node head;
     private int numberOfElements;
