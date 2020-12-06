@@ -2,7 +2,7 @@ package forms_students.campos;
 
 import forms_students.AbstractCampo;
 
-public class CampoNumero extends AbstractCampo{
+public class CampoNumero extends AbstractCampo {
 
 	public CampoNumero(String etiqueta) {
 		super(etiqueta);

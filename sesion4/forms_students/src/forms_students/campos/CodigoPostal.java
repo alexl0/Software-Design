@@ -2,7 +2,7 @@ package forms_students.campos;
 
 import forms_students.AbstractCampo;
 
-public class CodigoPostal extends AbstractCampo{
+public class CodigoPostal extends AbstractCampo {
 
 	public CodigoPostal(String etiqueta) {
 		super(etiqueta);
@@ -13,6 +13,6 @@ public class CodigoPostal extends AbstractCampo{
 		for (char ch : texto.toCharArray())
 			if (!Character.isDigit(ch))
 				return false;
-		return texto.length()==5;
+		return texto.length() == 5;
 	}
 }

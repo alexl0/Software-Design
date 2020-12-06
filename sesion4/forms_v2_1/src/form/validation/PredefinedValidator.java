@@ -1,31 +1,26 @@
 package form.validation;
 
-
-public class PredefinedValidator implements Validator
-{
+public class PredefinedValidator implements Validator {
 	private String[] predefinedValues;
 	private String message;
-	
-	public PredefinedValidator(String... values)
-	{
+
+	public PredefinedValidator(String... values) {
 		if (values == null || values.length == 0)
 			throw new IllegalArgumentException("Se necesita al menos un valor posible para el campo predefinido");
 		this.predefinedValues = values;
 		this.message = buildMessage();
 	}
-	
+
 	@Override
-	public boolean isValid(String value) 
-	{
+	public boolean isValid(String value) {
 		for (String each : predefinedValues) {
 			if (each.equalsIgnoreCase(value))
 				return true;
 		}
 		return false;
 	}
-	
-	private String buildMessage()
-	{
+
+	private String buildMessage() {
 		StringBuilder result = new StringBuilder("predefinido: [");
 		for (int i = 0; i < predefinedValues.length; i++) {
 			result.append(predefinedValues[i]);
@@ -35,12 +30,11 @@ public class PredefinedValidator implements Validator
 				result.append(" o ");
 		}
 		result.append("]");
-		return result.toString();		
+		return result.toString();
 	}
-	
+
 	@Override
-	public String getMessage() 
-	{
+	public String getMessage() {
 		return message;
 	}
 }

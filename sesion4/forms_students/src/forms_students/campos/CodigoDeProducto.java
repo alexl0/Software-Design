@@ -10,7 +10,7 @@ public class CodigoDeProducto extends AbstractCampo {
 
 	@Override
 	public boolean condicion(String texto) {
-		return texto.length()==4;
+		return texto.length() == 4;
 	}
 
 }

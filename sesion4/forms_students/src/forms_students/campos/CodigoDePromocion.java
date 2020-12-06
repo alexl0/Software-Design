@@ -10,11 +10,11 @@ public class CodigoDePromocion extends AbstractCampo {
 
 	@Override
 	public boolean condicion(String texto) {
-		boolean isnum=true;
+		boolean isnum = true;
 		for (char ch : texto.toCharArray())
 			if (!Character.isDigit(ch))
-				isnum=false;
-		return isnum? texto.length()==3 : true;
+				isnum = false;
+		return isnum ? texto.length() == 3 : true;
 	}
 
 }

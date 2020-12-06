@@ -1,18 +1,14 @@
 package form.validation;
 
-
-public class GreaterThanValidator implements Validator
-{
+public class GreaterThanValidator implements Validator {
 	private int value;
-	
-	public GreaterThanValidator(int value)
-	{
+
+	public GreaterThanValidator(int value) {
 		this.value = value;
 	}
-	
+
 	@Override
-	public boolean isValid(String value) 
-	{		
+	public boolean isValid(String value) {
 		try {
 			int number = Integer.parseInt(value);
 			return number > this.value;
@@ -22,8 +18,7 @@ public class GreaterThanValidator implements Validator
 	}
 
 	@Override
-	public String getMessage() 
-	{
+	public String getMessage() {
 		return "mayor que " + value;
 	}
 }

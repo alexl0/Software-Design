@@ -20,14 +20,13 @@ public class Main {
 		formulario.addCampo(new CampoNumero("Telefono"));
 		formulario.addCampo(new CampoPredefinido("Ciudad", "Santander", "Oviedo", "Cadiz"));
 
-		//Deberes
+		// Deberes
 		formulario.addCampo(new CodigoDeProducto("Codigo de producto"));
 		formulario.addCampo(new CodigoPostal("Codigo postal"));
 		formulario.addCampo(new Edad("Edad"));
 		formulario.addCampo(new Sueldo("Sueldo"));
 		formulario.addCampo(new Ubicacion("Ubicacion"));
 		formulario.addCampo(new CodigoDePromocion("Codigo de promocion"));
-
 
 		formulario.PideDatos();
 	}

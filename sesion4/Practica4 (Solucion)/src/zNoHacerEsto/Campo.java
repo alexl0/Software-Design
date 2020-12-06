@@ -1,4 +1,5 @@
 package zNoHacerEsto;
+
 import java.io.*;
 
 public abstract class Campo {
@@ -20,7 +21,7 @@ public abstract class Campo {
 		} while (!isValid(texto));
 	}
 
-	protected abstract boolean isValid(String texto2) ;
+	protected abstract boolean isValid(String texto2);
 
 	public String getDato() {
 		return texto;

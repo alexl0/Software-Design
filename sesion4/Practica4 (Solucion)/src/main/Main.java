@@ -22,22 +22,19 @@ public class Main {
 		formulario.addCampo(new Campo("Código Postal", new CheckCodigoPostal()));
 
 		// "Edad". Digitos y mayor 18
-		formulario.addCampo(new Campo("Edad", 
-				new CheckAll(new CheckNumber(), new CheckGreater(18))));
+		formulario.addCampo(new Campo("Edad", new CheckAll(new CheckNumber(), new CheckGreater(18))));
 
 		// "Sueldo". Digitos y mayor que 800 y menor que 1200
-		formulario.addCampo(new Campo("Sueldo", 
-				new CheckAll(new CheckNumber(), new CheckGreater(800), new CheckLess(1200))));
+		formulario.addCampo(
+				new Campo("Sueldo", new CheckAll(new CheckNumber(), new CheckGreater(800), new CheckLess(1200))));
 
 		// "Ubicación". Santander..Cádiz o código postal
-		formulario.addCampo(new Campo("Ubicación", 
+		formulario.addCampo(new Campo("Ubicación",
 				new CheckAny(new CheckValues("Santander", "Oviedo", "Cádiz"), new CheckCodigoPostal())));
 
 		// "Código de Promoción". Texto o (numero de 3 digitos)
-		formulario.addCampo(new Campo("Promoción", 
-				new CheckAny(
-						new CheckText(), 
-						new CheckAll(new CheckNumber(), new CheckLength(3)))));
+		formulario.addCampo(new Campo("Promoción",
+				new CheckAny(new CheckText(), new CheckAll(new CheckNumber(), new CheckLength(3)))));
 
 		formulario.PideDatos();
 	}

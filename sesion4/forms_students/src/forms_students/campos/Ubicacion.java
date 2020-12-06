@@ -10,11 +10,11 @@ public class Ubicacion extends AbstractCampo {
 
 	@Override
 	public boolean condicion(String texto) {
-		boolean iscp=true;
+		boolean iscp = true;
 		for (char ch : texto.toCharArray())
 			if (!Character.isDigit(ch))
-				iscp=false;
-		return iscp? texto.length()==5 : texto.toLowerCase()=="Santander" || texto.toLowerCase()=="Cadiz";
+				iscp = false;
+		return iscp ? texto.length() == 5 : texto.toLowerCase() == "Santander" || texto.toLowerCase() == "Cadiz";
 	}
 
 }

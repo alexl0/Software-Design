@@ -13,7 +13,7 @@ public class Sueldo extends AbstractCampo {
 		for (char ch : texto.toCharArray())
 			if (!Character.isDigit(ch))
 				return false;
-		return Integer.parseInt(texto)>=800 && Integer.parseInt(texto)<=1200;
+		return Integer.parseInt(texto) >= 800 && Integer.parseInt(texto) <= 1200;
 	}
 
 }

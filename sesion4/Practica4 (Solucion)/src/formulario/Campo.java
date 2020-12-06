@@ -1,4 +1,5 @@
 package formulario;
+
 import java.io.*;
 
 public class Campo {

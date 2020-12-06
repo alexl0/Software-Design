@@ -1,4 +1,5 @@
 package forms_students.campos;
+
 import forms_students.AbstractCampo;
 
 public class CampoPredefinido extends AbstractCampo {
@@ -9,7 +10,6 @@ public class CampoPredefinido extends AbstractCampo {
 		super(etiqueta);
 		this.valores = valores;
 	}
-
 
 	@Override
 	public boolean condicion(String texto) {
