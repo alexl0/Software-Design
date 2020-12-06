@@ -1,4 +1,6 @@
-package form.validation;
+package form.validation.basic;
+
+import form.validation.Validator;
 
 public class NumberValidator implements Validator {
 	@Override

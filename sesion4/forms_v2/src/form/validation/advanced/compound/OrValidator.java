@@ -1,4 +1,6 @@
-package form.validation;
+package form.validation.advanced.compound;
+
+import form.validation.Validator;
 
 public class OrValidator extends CompoundValidator implements Validator {
 	public OrValidator(Validator... validators) {

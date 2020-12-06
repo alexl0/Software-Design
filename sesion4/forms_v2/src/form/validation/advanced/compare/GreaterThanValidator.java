@@ -1,9 +1,11 @@
-package form.validation;
+package form.validation.advanced.compare;
 
-public class LessThanValidator implements Validator {
+import form.validation.Validator;
+
+public class GreaterThanValidator implements Validator {
 	private int value;
 
-	public LessThanValidator(int value) {
+	public GreaterThanValidator(int value) {
 		this.value = value;
 	}
 
@@ -11,7 +13,7 @@ public class LessThanValidator implements Validator {
 	public boolean isValid(String value) {
 		try {
 			int number = Integer.parseInt(value);
-			return number < this.value;
+			return number > this.value;
 		} catch (NumberFormatException e) {
 			return false;
 		}
@@ -19,6 +21,6 @@ public class LessThanValidator implements Validator {
 
 	@Override
 	public String getMessage() {
-		return "menor que " + value;
+		return "mayor que " + value;
 	}
 }

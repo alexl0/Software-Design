@@ -3,6 +3,8 @@ package form;
 import java.io.*;
 
 import form.validation.*;
+import form.validation.basic.NumberValidator;
+import form.validation.basic.TextValidator;
 
 public class Field {
 	public static final Validator TEXT = new TextValidator();

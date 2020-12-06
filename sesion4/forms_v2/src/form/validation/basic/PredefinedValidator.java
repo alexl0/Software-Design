@@ -1,4 +1,6 @@
-package form.validation;
+package form.validation.basic;
+
+import form.validation.Validator;
 
 public class PredefinedValidator implements Validator {
 	private String[] predefinedValues;

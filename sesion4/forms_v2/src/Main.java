@@ -2,6 +2,12 @@ import form.Field;
 import form.Form;
 
 import form.validation.*;
+import form.validation.advanced.LengthValidator;
+import form.validation.advanced.compare.GreaterThanValidator;
+import form.validation.advanced.compare.LessThanValidator;
+import form.validation.advanced.compound.AndValidator;
+import form.validation.advanced.compound.OrValidator;
+import form.validation.basic.PredefinedValidator;
 
 public class Main {
 	public static void main(String[] args) {

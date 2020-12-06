@@ -1,8 +1,10 @@
-package form.validation;
+package form.validation.advanced.compound;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import form.validation.Validator;
 
 public abstract class CompoundValidator implements Validator {
 	protected List<Validator> validators = new ArrayList<>();

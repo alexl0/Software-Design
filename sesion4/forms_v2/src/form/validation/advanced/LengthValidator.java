@@ -1,4 +1,6 @@
-package form.validation;
+package form.validation.advanced;
+
+import form.validation.Validator;
 
 public class LengthValidator implements Validator {
 	private int length;
