@@ -1,6 +1,6 @@
 package src.movieTypes;
 
 public interface MovieType {
-	double getCharge(int days);
-	int getFrequentRenterPoints(int days);
+	double getCharge(int daysRented);
+	int getFrequentRenterPoints(int daysRented);
 }

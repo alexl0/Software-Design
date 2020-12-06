@@ -2,16 +2,19 @@ package src.movieTypes;
 
 public class MovieChildren implements MovieType {
 
+	public static final int CHILDRENS = 2;
+
 	@Override
-	public double getCharge(int days) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getCharge(int daysRented) {
+		double thisAmount = 1.5;
+		if (daysRented > 3)
+			thisAmount += (daysRented - 3) * 1.5;
+		return thisAmount;
 	}
 
 	@Override
-	public int getFrequentRenterPoints(int days) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getFrequentRenterPoints(int daysRented) {
+		return 1;
 	}
 
 }
