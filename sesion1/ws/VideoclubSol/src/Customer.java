@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Customer {
-	
+
 	private String name;
 	private List<Rental> rentals = new ArrayList<Rental>();
 
@@ -26,10 +26,10 @@ public class Customer {
 			totalPrice += rental.getPrice();
 			totalPoints += rental.getPoints();
 
-			result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getPrice() + " €\n";
+			result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getPrice() + " ï¿½\n";
 		}
 
-		result += "La deuda es de " + totalPrice + " €\n";
+		result += "La deuda es de " + totalPrice + " ï¿½\n";
 		result += "Has obtenido " + totalPoints + " puntos en tu tarjeta";
 
 		return result;

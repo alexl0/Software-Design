@@ -1,5 +1,5 @@
 public class ChildrensMovie implements Category {
-	
+
 	public double getPrice(int daysRented) {
 		double result = 1.5;
 		if (daysRented > 3)
