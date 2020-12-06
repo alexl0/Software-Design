@@ -1,4 +1,7 @@
 import junit.framework.TestCase;
+import src.Customer;
+import src.Movie;
+import src.Rental;
 
 public class CustomerTest extends TestCase 
 {

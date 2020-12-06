@@ -1,18 +1,15 @@
 
-public class RegularMovie implements MovieType
-{
+public class RegularMovie implements MovieType {
 	@Override
-	public double getCharge(int daysRented) 
-	{
+	public double getCharge(int daysRented) {
 		double result = 2;
-		if (daysRented > 2) 
+		if (daysRented > 2)
 			result += (daysRented - 2) * 1.5;
 		return result;
 	}
 
 	@Override
-	public int getFrequentRenterPoints(int daysRented) 
-	{
+	public int getFrequentRenterPoints(int daysRented) {
 		return 1;
 	}
 }

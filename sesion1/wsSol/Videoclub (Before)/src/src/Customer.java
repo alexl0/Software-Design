@@ -1,3 +1,4 @@
+package src;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -31,19 +32,20 @@ public class Customer {
 		return result;
 	}
 
-	private double getTotalAmount() {
-		double result = 0;
+	public int getTotalFrequentRenterPoints() {
+		int frequentRenterPoints = 0;
 		for (Rental each : rentals) {
-			result += each.getCharge();
+			frequentRenterPoints += each.getFrequentRenterPoints();
 		}
-		return result;
+		return frequentRenterPoints;
 	}
 
-	private int getTotalFrequentRenterPoints() {
-		int result = 0;
+	public double getTotalAmount() {
+		double totalAmount = 0;
 		for (Rental each : rentals) {
-			result += each.getFrequentRenterPoints();
+			totalAmount += each.getCharge();
 		}
-		return result;
+		return totalAmount;
 	}
+
 }

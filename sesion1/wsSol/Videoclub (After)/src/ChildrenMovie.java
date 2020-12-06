@@ -1,9 +1,7 @@
 
-public class ChildrenMovie implements MovieType
-{
+public class ChildrenMovie implements MovieType {
 	@Override
-	public double getCharge(int daysRented) 
-	{
+	public double getCharge(int daysRented) {
 		double result = 1.5;
 		if (daysRented > 3)
 			result += (daysRented - 3) * 1.5;
@@ -11,8 +9,7 @@ public class ChildrenMovie implements MovieType
 	}
 
 	@Override
-	public int getFrequentRenterPoints(int daysRented) 
-	{
+	public int getFrequentRenterPoints(int daysRented) {
 		return 1;
 	}
 }

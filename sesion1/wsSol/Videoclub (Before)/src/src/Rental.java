@@ -1,3 +1,4 @@
+package src;
 /**
  * Esta clase representa el alquiler de una película por parte de un cliente.
  */
@@ -18,11 +19,11 @@ public class Rental {
 		return movie;
 	}
 
-	public double getCharge() {
-		return movie.getCharge(daysRented);
-	}
-
 	int getFrequentRenterPoints() {
 		return movie.getFrequentRenterPoints(daysRented);
+	}
+
+	double getCharge() {
+		return movie.getCharge(daysRented);
 	}
 }
