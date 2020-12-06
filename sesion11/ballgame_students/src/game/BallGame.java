@@ -21,8 +21,7 @@ public class BallGame
 
 	private ApiAdaptadora apiAdaptadora;
 
-	public void play() 
-	{
+	public void play(){
 		// se inicializa la API adecuada para cada plataforma
 		setAPI();
 
@@ -35,27 +34,19 @@ public class BallGame
 		}
 	}
 
-	private void setAPI() 
-	{
+	private void setAPI(){
 		apiAdaptadora=new ApiAdaptadora(platform);
 	}
 
-	private Image2D loadImage(String file) 
-	{
-		Image2D image;
-		image = apiAdaptadora.loadResource(file);
-		return image;
+	private Image2D loadImage(String file){
+		return apiAdaptadora.loadImage(file);
 	}
 
-	private Point getPosition() 
-	{
-		Point point;
-		point = apiAdaptadora.getTouch();
-		return point;
+	private Point getPosition(){
+		return apiAdaptadora.getPosition();
 	}
 
-	private void drawBall(Image2D image, Point point) 
-	{
-		apiAdaptadora.draw(point.x, point.y, image);
+	private void drawBall(Image2D image, Point point){
+		apiAdaptadora.drawBall(point.x, point.y, image);
 	}
 }

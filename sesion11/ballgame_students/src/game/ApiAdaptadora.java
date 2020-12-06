@@ -24,7 +24,7 @@ public class ApiAdaptadora {
 			playstation = new Playstation5API();
 	}
 
-	public Image2D loadResource(String name) 
+	public Image2D loadImage(String name) 
 	{
 		if (platform == Platform.ANDROID)
 			return android.loadResource(name);
@@ -35,7 +35,7 @@ public class ApiAdaptadora {
 		else return null;
 	}
 
-	public void draw(int x, int y, Image2D image) 
+	public void drawBall(int x, int y, Image2D image) 
 	{
 		if (platform == Platform.ANDROID)
 			android.draw(x, y, image);
@@ -50,7 +50,7 @@ public class ApiAdaptadora {
 	 * @return un objeto punto (Point) con la posición donde el usuario ha tocado
 	 *         con el dedo la pantalla
 	 */
-	public Point getTouch() 
+	public Point getPosition() 
 	{
 		if (platform == Platform.ANDROID)
 			return android.getTouch();
