@@ -4,7 +4,7 @@ import java.io.*;
 
 import outputs.*;
 
-public class LinesFilter extends AbstractFilter
+public class LinesFilter extends AbstractFilter implements Output 
 {
 	public LinesFilter(Output output) 
 	{

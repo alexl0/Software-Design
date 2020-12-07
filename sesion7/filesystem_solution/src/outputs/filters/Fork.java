@@ -4,10 +4,8 @@ import java.io.*;
 
 import outputs.*;
 
-public class Fork extends AbstractFilter
+public class Fork extends AbstractFilter 
 {
-	private Output output2;
-	
 	public Fork(Output output1, Output output2) 
 	{
 		super(output1);
@@ -31,4 +29,5 @@ public class Fork extends AbstractFilter
 		output2.close();
 	}
 	
+	private Output output2;
 }

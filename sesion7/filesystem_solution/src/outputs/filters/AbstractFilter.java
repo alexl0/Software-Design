@@ -6,8 +6,6 @@ import outputs.*;
 
 public abstract class AbstractFilter implements Output 
 {
-	protected Output output;
-
 	public AbstractFilter(Output output) 
 	{
 		this.output = output;
@@ -18,4 +16,5 @@ public abstract class AbstractFilter implements Output
 		output.close();
 	}
 
+	protected Output output;
 }
