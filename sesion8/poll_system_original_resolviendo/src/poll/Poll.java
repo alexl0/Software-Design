@@ -1,10 +1,16 @@
 package poll;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import poll.observers.PollObserver;
+
 public class Poll 
 {
 	private int yeses, nos;
 	private String question;
-	
+	private List<PollObserver> observers=new ArrayList<PollObserver>();
+
 	public Poll(String question) 
 	{
 		this.question = question;
@@ -28,31 +34,21 @@ public class Poll
 	public void incrementYeses() 
 	{
 		yeses++;
-		updatePieChart();
-		updateBarChart();
-		saveResults();
+		updateObservers(this);
 	}
 
 	public void incrementNos() 
 	{
 		nos++;
-		updatePieChart();
-		updateBarChart();
-		saveResults();
+		updateObservers(this);
 	}
 
-	private void updateBarChart() 
-	{
-		System.out.println("Dibujando un gráfico de barras...");
+	public void addObserver(PollObserver pollObserver) {
+		observers.add(pollObserver);
 	}
 
-	private void updatePieChart() 
-	{
-		System.out.println("Dibujando un gráfico circular...");
-	}
-
-	private void saveResults() 
-	{
-		System.out.println("Guardando los resultados...");
+	private void updateObservers(Poll poll) {
+		for(PollObserver each:observers)
+			each.update(poll);
 	}
 }
