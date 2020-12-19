@@ -1,3 +1,4 @@
+package category;
 public class ChildrensMovie implements Category {
 
 	public double getPrice(int daysRented) {

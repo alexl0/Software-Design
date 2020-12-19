@@ -1,8 +1,12 @@
+import category.ChildrensMovie;
+import category.NewReleaseMovie;
+import category.RegularMovie;
+
 public class Main {
 
 	public static void main(String[] args) {
 
-		Customer raul = new Customer("Raúl");
+		Customer raul = new Customer("Raï¿½l");
 
 		Movie hotFuzz = new Movie("Hot Fuzz", new NewReleaseMovie());
 		Movie toyStory = new Movie("Toy Story", new ChildrensMovie());

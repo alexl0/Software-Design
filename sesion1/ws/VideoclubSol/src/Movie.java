@@ -1,3 +1,5 @@
+import category.Category;
+
 public class Movie {
 	private String title;
 	private Category category;

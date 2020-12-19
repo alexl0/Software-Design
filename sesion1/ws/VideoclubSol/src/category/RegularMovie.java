@@ -1,3 +1,4 @@
+package category;
 public class RegularMovie implements Category {
 
 	public double getPrice(int daysRented) {
