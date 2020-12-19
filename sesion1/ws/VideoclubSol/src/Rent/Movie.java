@@ -1,3 +1,4 @@
+package Rent;
 import category.Category;
 
 public class Movie {

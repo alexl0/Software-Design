@@ -1,3 +1,4 @@
+package Rent;
 import java.util.*;
 
 public class Customer {

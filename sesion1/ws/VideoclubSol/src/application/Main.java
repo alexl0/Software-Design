@@ -1,3 +1,7 @@
+package application;
+import Rent.Customer;
+import Rent.Movie;
+import Rent.Rental;
 import category.ChildrensMovie;
 import category.NewReleaseMovie;
 import category.RegularMovie;
