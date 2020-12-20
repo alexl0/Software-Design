@@ -1,7 +1,6 @@
-package poll.observers.simple;
+package poll.observers;
 
 import poll.*;
-import poll.observers.PollObserver;
 
 public class BarChart implements PollObserver
 {

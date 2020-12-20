@@ -1,4 +1,4 @@
-package poll.observers.advanced;
+package poll.observers.decorator;
 
 import poll.Poll;
 import poll.observers.PollObserver;
