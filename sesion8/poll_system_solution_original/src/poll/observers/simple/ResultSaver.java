@@ -1,7 +1,7 @@
-package poll.observers;
+package poll.observers.simple;
 
 import poll.Poll;
-import poll.PollObserver;
+import poll.observers.PollObserver;
 
 public class ResultSaver implements PollObserver
 {

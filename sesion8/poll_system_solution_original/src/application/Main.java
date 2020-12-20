@@ -1,7 +1,14 @@
+package application;
 import java.io.*;
 
 import poll.*;
 import poll.observers.*;
+import poll.observers.advanced.FrequencyObserver;
+import poll.observers.advanced.MinimumVotesObserver;
+import poll.observers.simple.BarChart;
+import poll.observers.simple.PieChart;
+import poll.observers.simple.ResultSaver;
+import poll.observers.simple.StatusBar;
 
 public class Main 
 {

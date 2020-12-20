@@ -1,7 +1,7 @@
-package poll.observers;
+package poll.observers.advanced;
 
 import poll.Poll;
-import poll.PollObserver;
+import poll.observers.PollObserver;
 
 /**
  * Decorador.

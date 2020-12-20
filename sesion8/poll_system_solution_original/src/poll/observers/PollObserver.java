@@ -1,4 +1,6 @@
-package poll;
+package poll.observers;
+
+import poll.Poll;
 
 public interface PollObserver 
 {

@@ -12,7 +12,7 @@ public class Main
 	public static void main(String[] args) throws IOException 
 	{
 		FileSystem system = new FileSystem();
-		/*
+		
 		//-- Diseño de Referencia
 		//   Cambios: Añadir 3 clases (LinesFilter, SpacesFilter y Encriptor)
 		//-------------------------------------------------------------------
@@ -64,7 +64,7 @@ public class Main
 		//   Cambios: Añadir clase Fork
 		//-------------------------------------------------------------------
 		system.copyFile("privado.txt", new Encryptor(new Fork(new Internet("156.17.11.196"), new Bluetooth("Galaxy de Raúl"))));
-		 */
+		 
 
 		//-- Opcional 1
 		//   Cambios: Ninguno

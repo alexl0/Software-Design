@@ -6,6 +6,7 @@ import components.*;
 
 public class MonumentMapElement extends Monument implements MapElement 
 {
+	
 	private GPS gps = new GPS();
 
 	public MonumentMapElement(String name, String author, String address)
