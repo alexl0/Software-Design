@@ -1,30 +1,25 @@
 package model;
 
-public class Monument 
-{
+public class Monument {
 	private String name;
 	private String author;
 	private String address;
 
-	public Monument(String name, String author, String address) 
-	{
+	public Monument(String name, String author, String address) {
 		this.name = name;
 		this.author = author;
 		this.address = address;
 	}
 
-	public String getName() 
-	{
+	public String getName() {
 		return name;
 	}
 
-	public String getAddress() 
-	{
+	public String getAddress() {
 		return address;
 	}
-	
-	public String getAuthor() 
-	{
+
+	public String getAuthor() {
 		return author;
 	}
 }

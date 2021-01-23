@@ -4,37 +4,31 @@ import components.*;
 import model.Restaurant;
 import views.MapElement;
 
-public class RestaurantMapElement implements MapElement
-{
+public class RestaurantMapElement implements MapElement {
 	private Restaurant restaurant;
 	private GPS gps = new GPS();
-	
-	public RestaurantMapElement(Restaurant restaurant)
-	{
+
+	public RestaurantMapElement(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
 
 	@Override
-	public String getTitle() 
-	{
+	public String getTitle() {
 		return "Restaurante: " + restaurant.getName();
 	}
 
 	@Override
-	public Coordinates getCoordinates() 
-	{
+	public Coordinates getCoordinates() {
 		return gps.getCoordinates(restaurant.getAddress());
 	}
 
 	@Override
-	public String getHTMLInfo() 
-	{
+	public String getHTMLInfo() {
 		return restaurant.getName() + "\n" + restaurant.getAddress() + "\n" + restaurant.getPhone();
 	}
 
 	@Override
-	public void open() 
-	{
+	public void open() {
 		restaurant.call();
 	}
 }
