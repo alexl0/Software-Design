@@ -10,13 +10,13 @@ public class Movie {
 	public static final MovieType REGULAR = new MovieRegular();
 	public static final MovieType CHILDRENS = new MovieChildren();
 	public static final MovieType NEW_RELEASE = new MovieNewRelease();
-	
+
 	private String title;
 	private MovieType movieType;
 
 	public Movie(String title, MovieType movieType) {
 		this.title = title;
-		this.movieType=movieType;
+		this.movieType = movieType;
 	}
 
 	public String getTitle() {
