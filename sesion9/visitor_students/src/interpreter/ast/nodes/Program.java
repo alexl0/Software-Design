@@ -2,18 +2,10 @@ package interpreter.ast.nodes;
 
 import java.util.*;
 
-import visitor.Visitor;
+public class Program implements Node {
+	public List<Statement> statements;
 
-public class Program implements Node 
-{
-    public List<Statement> statements;
-    
-    public Program(List<Statement> program) 
-    {
-        this.statements = program;
-    }
-	@Override
-	public Object accept(Visitor v, Object param) {
-		return v.visit(this, param);
+	public Program(List<Statement> program) {
+		this.statements = program;
 	}
 }

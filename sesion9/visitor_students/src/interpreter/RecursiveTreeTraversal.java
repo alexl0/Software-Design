@@ -6,10 +6,8 @@ import interpreter.ast.nodes.*;
  * Así, haciendo un recorrido recursivo del árbol, a la manera tradicional, sí funciona.
  * ¿Inconveniente? Que todo el código de todos los nodos está en un solo metodo.
  */
-public class RecursiveTreeTraversal 
-{
-	public void visit(Node node) 
-	{
+public class RecursiveTreeTraversal {
+	public void visit(Node node) {
 		if (node instanceof Program) {
 			for (Statement sent : ((Program) node).statements)
 				visit(sent);

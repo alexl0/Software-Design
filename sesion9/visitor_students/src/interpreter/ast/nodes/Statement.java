@@ -1,5 +1,4 @@
 package interpreter.ast.nodes;
 
-public interface Statement extends Node 
-{    
+public interface Statement extends Node {
 }

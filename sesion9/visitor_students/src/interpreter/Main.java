@@ -4,15 +4,10 @@ import java.util.*;
 
 import interpreter.ast.nodes.*;
 
-public class Main 
-{
-	public static void main(String[] args) 
-	{
+public class Main {
+	public static void main(String[] args) {
 		/*
-		 	read ancho; 
-		 	read alto; 
-		 	area = alto * ancho / 2; 
-		 	print area + 10;
+		 * read ancho; read alto; area = alto * ancho / 2; print area + 10;
 		 */
 
 		List<Statement> statements = new ArrayList<Statement>();
@@ -40,13 +35,13 @@ public class Main
 		System.out.println("\n--- Recorrido ideal: no compila");
 		// IdealVersion ideal = new IdealVersion();
 		// ideal.visit(program);
-		
+
 		// TODO: Tenéis que hacer que funcione lo siguiente
 		System.out.println("\n--- Recorrido con el patrón Visitor: sin hacer");
 		// Visitor printVisitor = new PrintVisitor();
 		// program.accept(printVisitor, null);
-		
+
 		// TODO: Después, otro visitor que interprete el programa
-		
+
 	}
 }
