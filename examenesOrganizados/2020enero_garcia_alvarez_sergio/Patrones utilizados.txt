@@ -1,0 +1,11 @@
+Primero he encapsulado las distintas acciones que el mando ofrece. He creado una interfaz
+Action de la que implementaran dichas acciones. Action tiene un metodo execute(ejecuta la
+accion correspondiente) y getButtonIcon(Texto que cada accion tiene asiganada para que salga
+en el mando). De esta Forma añadir nuevas acciones es mucho mas sencillo y no seria
+necesario modificar ninguna de las clases existentes, solo añadir nuevas implementaciones de
+la interfaz Action, cumpliendo asi el OCP.
+He utilizado el patron COMPOSITE Para crear la accion 5 de la tercera configuracion.
+Esta nos pide realizar una accion compuesta por una secuencia de acciones. Para ello he
+creado la accion CompositeAction que implementa de Action y a su vez contiene una lista
+de Action. Gracias a esto el metodo execute de la accion Compuesta recorre la lista 
+llamando al metodo execute de cada una de las acciones que lo componen.
