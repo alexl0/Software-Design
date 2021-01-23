@@ -4,17 +4,14 @@ import java.io.*;
 
 import outputs.*;
 
-public class SpacesFilter extends AbstractFilter
-{
+public class SpacesFilter extends AbstractFilter {
 	private char lastChar = 0;
 
-	public SpacesFilter(Output output) 
-	{
+	public SpacesFilter(Output output) {
 		super(output);
 	}
 
-	public void send(char c) throws IOException 
-	{
+	public void send(char c) throws IOException {
 		if (c == ' ' && lastChar == ' ')
 			return;
 

@@ -2,21 +2,17 @@ package outputs;
 
 import java.io.*;
 
-public class Bluetooth implements Output 
-{
-	public Bluetooth(String device) 
-	{
+public class Bluetooth implements Output {
+	public Bluetooth(String device) {
 		stringWriter = new StringWriter();
 		stringWriter.append("\n--- START Bluetooth [" + device + "]\n");
 	}
 
-	public void send(char c) throws IOException 
-	{
+	public void send(char c) throws IOException {
 		stringWriter.append(c);
 	}
 
-	public void close() throws IOException 
-	{
+	public void close() throws IOException {
 		System.out.print(stringWriter.toString());
 		System.out.println("\n--- END   Bluetooth");
 	}

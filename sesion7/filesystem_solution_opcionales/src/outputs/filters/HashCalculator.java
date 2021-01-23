@@ -10,19 +10,19 @@ public class HashCalculator extends AbstractFilter {
 
 	public HashCalculator(Output output) {
 		super(output);
-		message="";
+		message = "";
 	}
 
 	@Override
 	public void send(char c) throws IOException {
 		output.send(c);
-		message+=c;
+		message += c;
 	}
 
 	public String getHashMD5() {
-		String hash="";
-		for(byte s:message.getBytes()) {
-			hash+=s;
+		String hash = "";
+		for (byte s : message.getBytes()) {
+			hash += s;
 		}
 		return hash;
 	}

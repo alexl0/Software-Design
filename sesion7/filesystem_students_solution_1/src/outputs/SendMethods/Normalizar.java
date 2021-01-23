@@ -7,7 +7,7 @@ public class Normalizar extends AbstractSendMethod {
 
 	@Override
 	public boolean cumpleCondicion(char c) {
-		return c!='\r';
+		return c != '\r';
 	}
 
 	@Override

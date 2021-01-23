@@ -12,7 +12,7 @@ public class Encriptar extends AbstractSendMethod {
 
 	@Override
 	public void realizaAccion(char c, Writer writer) throws IOException {
-		writer.append((char) (c+1));
+		writer.append((char) (c + 1));
 	}
 
 }

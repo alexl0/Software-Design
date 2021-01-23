@@ -4,10 +4,8 @@ import java.io.*;
 
 import outputs.*;
 
-public class FileSystem
-{
-	public void copyFile(String name, Output output) 
-	{
+public class FileSystem {
+	public void copyFile(String name, Output output) {
 		try {
 			FileReader reader = new FileReader(name);
 

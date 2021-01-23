@@ -4,10 +4,8 @@ import java.io.*;
 
 import outputs.*;
 
-public class Main 
-{
-	public static void main(String[] args) throws IOException 
-	{
+public class Main {
+	public static void main(String[] args) throws IOException {
 		FileSystem system = new FileSystem();
 
 		system.copyFile("privado.txt", new FileOutput("copia.txt"));

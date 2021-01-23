@@ -7,7 +7,7 @@ public abstract class AbstractSendMethod implements SendMethod {
 
 	@Override
 	public void send(char c, Writer writer) throws IOException {
-		if(cumpleCondicion(c))
+		if (cumpleCondicion(c))
 			realizaAccion(c, writer);
 	}
 
