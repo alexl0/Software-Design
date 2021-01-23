@@ -4,25 +4,23 @@ import java.util.*;
 
 import machine.hardware.*;
 import machine.model.*;
-import ruralvia.BankGateway;
+import machine.payMehods.PayByCard;
+import machine.payMehods.PayByCash;
+import machine.payMehods.PayByPayPal;
+import machine.payMehods.PayMethod;
 
-public class Machine 
-{	
-	private enum PaymentMode { CREDIT_CARD, CASH }
-	
+public class Machine {
+
 	private List<Event> events = new ArrayList<>();
-	
+
 	// los distintos componentes físicos con los que interactúa la máquina expendedora
 	private Display display = new Display();
 	private Keyboard keyboard = new Keyboard();
 	private Printer printer = new Printer();
-	private CardReader cardReader = new CardReader();
-	private BillAcceptor billAcceptor = new BillAcceptor();
-	
-	// pasarela de pagos (para los pagos con tarjeta)
-	private BankGateway bankGateway = new BankGateway();
 	
 	
+	//Strategy
+	private PayMethod payMethod;
 	
 	//-- Métodos públicos
 	//-------------------------------------------------------------------------
@@ -45,18 +43,12 @@ public class Machine
 			double amountToPay = numberOfTickets * selectedEvent.getPrice();
 			display.show(String.format("Importe a pagar: %.2f €%n", amountToPay));
 			
-			PaymentMode paymentMode = selectPaymentMode();
+			selectPaymentMode();
 			
 			// se realiza el pago
 			boolean isValidPayment;
-			if (paymentMode == PaymentMode.CREDIT_CARD) {
-				isValidPayment = payByCard(amountToPay);
-			} else if (paymentMode == PaymentMode.CASH) {
-				isValidPayment = payByCash(amountToPay);
-			} else {
-				throw new AssertionError("Método de pago desconocido: " + paymentMode);
-			}
-			
+			isValidPayment = payMethod.pay(amountToPay);
+
 			if (!isValidPayment) {
 				display.show("No se ha podido completar el pago\n\n");
 				continue;
@@ -80,62 +72,27 @@ public class Machine
 	//-- Pago
 	//-------------------------------------------------------------------------
 	
-	private PaymentMode selectPaymentMode()
+	private void selectPaymentMode()
 	{
 		display.show("\nEscoja un método de pago:\n");
 		display.show("  1. Pago con tarjeta\n");
 		display.show("  2. Pago en efectivo\n");
-		int option = keyboard.readOption(2);
+		display.show("  3. Pago por PayPal\n");
+		int option = keyboard.readOption(3);
 		switch (option) {
-		case 1: return PaymentMode.CREDIT_CARD;
-		case 2: return PaymentMode.CASH;
-		default: throw new AssertionError("Método de pago inválido");
+			case 1:
+				payMethod=new PayByCard();
+				break;
+			case 2:
+				payMethod=new PayByCash();
+				break;
+			case 3:
+				payMethod=new PayByPayPal();
+				break;
+			default: throw new AssertionError("Método de pago inválido");
 		}
 	}
-	
-	private boolean payByCard(double amount)
-	{
-		String cardNumber = cardReader.readCardNumber();
-		boolean isValid = bankGateway.pay(cardNumber, amount);
-		if (!isValid) {
-			display.show("Tarjeta rechazada\n");
-			return false;
-		}
-		// pago correcto
-		display.show("Tarjeta aceptada: pago realizado con éxito\n");
-		return true;		
-	}
-	
-	private boolean payByCash(double amount)
-	{
-		int insertedAmount = 0;
-		boolean cancel = false;
-		billAcceptor.reset();
-		do {
-			display.show(String.format("Quedan por pagar %.2f €%n", amount - insertedAmount));
-			double inserted = billAcceptor.insertBill();
-			insertedAmount = billAcceptor.getTotalAmount();
-			if (inserted == 0)
-				cancel = true;
-		} while (insertedAmount < amount && !cancel);
-		
-		if (cancel) {
-			display.show("Operación cancelada por el usuario\n");
-			// si antes de cancelar había introducido dinero, se le devuelve
-			if (insertedAmount > 0)
-				billAcceptor.returnChange(insertedAmount);
-			return false;
-		}
-		display.show("Pago completado\n");
-		// se devuelve el cambio
-		if (insertedAmount > amount) {
-			billAcceptor.returnChange(insertedAmount - amount);
-		} 
-		return true;
-	}
-		
-	
-	
+
 	//-- Seleccionar evento
 	//-------------------------------------------------------------------------
 	
