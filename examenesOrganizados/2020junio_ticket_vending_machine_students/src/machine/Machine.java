@@ -43,6 +43,8 @@ public class Machine {
 			double amountToPay = numberOfTickets * selectedEvent.getPrice();
 			display.show(String.format("Importe a pagar: %.2f €%n", amountToPay));
 			
+			amountToPay=selectDiscount(amountToPay, selectedEvent);
+			
 			selectPaymentMode();
 			
 			// se realiza el pago
@@ -89,6 +91,26 @@ public class Machine {
 			case 3:
 				payMethod=new PayByPayPal();
 				break;
+			default: throw new AssertionError("Método de pago inválido");
+		}
+	}
+	
+	private double selectDiscount(double amountToPay, Event selectedEvent)
+	{
+		display.show("\nIntroduzca un codigo de descuento:\n");
+		String code = keyboard.readString();
+		switch (code) {
+			case "15EURACOS":
+				amountToPay-=15;
+				if(amountToPay<0)
+					amountToPay=0;
+				return amountToPay;
+			case "VERANO20":
+				amountToPay-=amountToPay/10;
+				return amountToPay;
+			case "FREE1":
+				amountToPay-=selectedEvent.getPrice();
+				return amountToPay;
 			default: throw new AssertionError("Método de pago inválido");
 		}
 	}
