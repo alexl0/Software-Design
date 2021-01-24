@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Interpreter 
-{
+public class Interpreter {
 	private static List<String[]> instructions = new ArrayList<>();
 	private static int ip = 0;
 
@@ -11,8 +10,7 @@ public class Interpreter
 	private static int[] stack = new int[32];
 	private static int sp = 0;
 
-	public static void main(String[] args) throws Exception 
-	{
+	public static void main(String[] args) throws Exception {
 		BufferedReader file = new BufferedReader(new FileReader("factorial.txt"));
 
 		String line;
@@ -23,8 +21,7 @@ public class Interpreter
 		executeProgram();
 	}
 
-	private static void executeProgram() 
-	{
+	private static void executeProgram() {
 		while (ip < instructions.size()) {
 			String[] sentence = instructions.get(ip);
 
@@ -73,8 +70,7 @@ public class Interpreter
 
 	private static final boolean TRACE = false;
 
-	private static void loadSentence(String line) 
-	{
+	private static void loadSentence(String line) {
 		if (line.trim().length() == 0)
 			return;
 
@@ -86,20 +82,17 @@ public class Interpreter
 		instructions.add(tokens);
 	}
 
-	private static void push(int value) 
-	{
+	private static void push(int value) {
 		stack[sp] = value;
 		sp++;
 	}
 
-	private static int pop() 
-	{
+	private static int pop() {
 		sp--;
 		return stack[sp];
 	}
 
-	private static int readValue() 
-	{
+	private static int readValue() {
 		return new Scanner(System.in).nextInt();
 	}
 }

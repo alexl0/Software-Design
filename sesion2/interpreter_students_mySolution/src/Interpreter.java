@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Interpreter
-{
+public class Interpreter {
 	private static List<String[]> instructions = new ArrayList<>();
 	private static int ip = 0;
 
@@ -11,8 +10,7 @@ public class Interpreter
 	private static int[] stack = new int[32];
 	private static int sp = 0;
 
-	public static void main(String[] args) throws Exception 
-	{
+	public static void main(String[] args) throws Exception {
 		BufferedReader file = new BufferedReader(new FileReader("factorial.txt"));
 
 		String line;
@@ -23,8 +21,7 @@ public class Interpreter
 		executeProgram();
 	}
 
-	private static void executeProgram() 
-	{
+	private static void executeProgram() {
 		while (ip < instructions.size()) {
 			String[] sentence = instructions.get(ip);
 
@@ -74,27 +71,25 @@ public class Interpreter
 	private static final boolean TRACE = false;
 
 	/**
-	 * Da igual que haya una clase para cada tipo de instruccion.
-	 * Sí, es igual que el problema de la figura, y circulo, rectangulo y triangulo que heredan de figura, tiene que haber una clase para cada subtipo.
-	 * Pero si hacemos una clase para cada tipo de instruccion lo único que estaríamos haciendo es coger la lógica condicional de la que hay que deshacerse
-	 * y que ahora está en executeProgram(), y transladarla al loadSentence(), puesto que habría que hacer:
-	 * 		if(tokens[0]=="push")
-	 * 			instructions.add(new InstructionPush(tokens[1]);
-	 * 		if(tokens[0]=="jmp")
-	 * 			instructions.add(new InstructionJmp(tokens[1]);
-	 * 		...
-	 * 		...
-	 * 		...
-	 * Por lo que no nos estaríamos librando del problema de tener que comprobar si es una entre
-	 * un montón de instrucciones, y si hay 1000 instrucciones, hacer 1000 comprobaciones para el caso de la
-	 * instrucción número 1000.
+	 * Da igual que haya una clase para cada tipo de instruccion. Sí, es igual que
+	 * el problema de la figura, y circulo, rectangulo y triangulo que heredan de
+	 * figura, tiene que haber una clase para cada subtipo. Pero si hacemos una
+	 * clase para cada tipo de instruccion lo único que estaríamos haciendo es
+	 * coger la lógica condicional de la que hay que deshacerse y que ahora está
+	 * en executeProgram(), y transladarla al loadSentence(), puesto que habría que
+	 * hacer: if(tokens[0]=="push") instructions.add(new InstructionPush(tokens[1]);
+	 * if(tokens[0]=="jmp") instructions.add(new InstructionJmp(tokens[1]); ... ...
+	 * ... Por lo que no nos estaríamos librando del problema de tener que
+	 * comprobar si es una entre un montón de instrucciones, y si hay 1000
+	 * instrucciones, hacer 1000 comprobaciones para el caso de la instrucción
+	 * número 1000.
 	 * 
-	 * No se me ocurre una manera de que no haya que hacer tantos if else como número de instrucciones haya.
+	 * No se me ocurre una manera de que no haya que hacer tantos if else como
+	 * número de instrucciones haya.
 	 * 
 	 * @param line
 	 */
-	private static void loadSentence(String line) 
-	{
+	private static void loadSentence(String line) {
 		if (line.trim().length() == 0)
 			return;
 
@@ -106,21 +101,18 @@ public class Interpreter
 		instructions.add(tokens);
 	}
 
-	static void push(int value) 
-	{
+	static void push(int value) {
 		stack[sp] = value;
 		sp++;
 	}
 
-	static int pop() 
-	{
+	static int pop() {
 		sp--;
 		return stack[sp];
 	}
 
 	@SuppressWarnings("resource")
-	static int readValue() 
-	{
+	static int readValue() {
 		return new Scanner(System.in).nextInt();
 	}
 }

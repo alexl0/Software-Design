@@ -2,19 +2,16 @@ package interpreter;
 
 import interpreter.parser.Parser;
 
-public class Application 
-{
+public class Application {
 	private Parser parser;
-	
-	public static void main(String[] args) throws Exception
-	{
+
+	public static void main(String[] args) throws Exception {
 		new Application().run();
 	}
-	
-	public void run() throws Exception
-	{
+
+	public void run() throws Exception {
 		parser = new Parser();
-		
+
 		Interpreter interpreter = new Interpreter(parser.parse("factorial.txt"));
 		interpreter.run();
 	}

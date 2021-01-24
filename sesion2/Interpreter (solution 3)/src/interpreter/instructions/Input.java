@@ -5,17 +5,14 @@ import java.util.Scanner;
 import interpreter.Context;
 import interpreter.ProgramException;
 
-public class Input extends AbstractInstruction implements Instruction
-{
+public class Input extends AbstractInstruction implements Instruction {
 	@Override
-	protected void run(Context context) throws ProgramException 
-	{
+	protected void run(Context context) throws ProgramException {
 		System.out.print("Escriba un entero: ");
-		context.push(readValue());			
+		context.push(readValue());
 	}
-	
-	private int readValue() 
-	{
+
+	private int readValue() {
 		Scanner scanner = new Scanner(System.in);
 		int result;
 		while (!scanner.hasNextInt()) {
@@ -27,10 +24,9 @@ public class Input extends AbstractInstruction implements Instruction
 		scanner.close();
 		return result;
 	}
-	
+
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "INPUT";
 	}
 }

@@ -5,12 +5,10 @@ import interpreter.instructions.*;
 import java.util.*;
 import java.io.*;
 
-public class Parser 
-{
-	private static final boolean TRACE = false;	
-	
-	public List<Instruction> parse(String filename) throws IOException, ParserException
-	{
+public class Parser {
+	private static final boolean TRACE = false;
+
+	public List<Instruction> parse(String filename) throws IOException, ParserException {
 		List<Instruction> program = new ArrayList<>();
 		BufferedReader file = new BufferedReader(new FileReader(filename));
 		String line;
@@ -25,24 +23,24 @@ public class Parser
 		file.close();
 		return program;
 	}
-	
-	private Instruction parseLine(int lineNumber, String line) throws ParserException
-	{
+
+	private Instruction parseLine(int lineNumber, String line) throws ParserException {
 		String[] tokens = line.split(" ");
 		if (TRACE) {
 			for (String token : tokens)
 				System.out.println("*" + token + "*");
 		}
-		
+
 		String name = tokens[0].toUpperCase();
-		
+
 		if (name.equals("PUSH")) {
 			try {
 				int value = Integer.parseInt(tokens[1]);
 				return new Push(value);
 			} catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
-				throw new ParserException(lineNumber, line, "La instrucción PUSH necesita como argumento el valor entero a almacenar en la pila");
-			}			
+				throw new ParserException(lineNumber, line,
+						"La instrucción PUSH necesita como argumento el valor entero a almacenar en la pila");
+			}
 		}
 
 		if (name.equals("JMP") || name.equals("JMPG")) {
@@ -54,10 +52,11 @@ public class Parser
 					return new JumpIfGreaterThan(address);
 				}
 			} catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
-				throw new ParserException(lineNumber, line, "La instrucción " + name + " necesita como argumento un valor entero con la dirección de memoria");
+				throw new ParserException(lineNumber, line, "La instrucción " + name
+						+ " necesita como argumento un valor entero con la dirección de memoria");
 			}
 		}
-		
+
 		if (name.equals("ADD")) {
 			return new Add();
 		} else if (name.equals("SUB")) {
