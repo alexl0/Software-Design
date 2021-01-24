@@ -4,12 +4,10 @@ import java.io.*;
 
 import poll.Poll;
 
-public class Interviewer 
-{
+public class Interviewer {
 	private BufferedReader input;
 
-	public void fill(Poll poll) throws IOException 
-	{
+	public void fill(Poll poll) throws IOException {
 		input = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Acciones: [sí] / [no]");
@@ -33,4 +31,3 @@ public class Interviewer
 		}
 	}
 }
-
