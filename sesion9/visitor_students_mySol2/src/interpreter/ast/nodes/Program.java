@@ -13,7 +13,6 @@ public class Program implements Node {
 
 	@Override
 	public void accept(Visitor visitor) {
-		for (Statement s : statements)
-			s.accept(visitor);
+		visitor.visit(this);
 	}
 }

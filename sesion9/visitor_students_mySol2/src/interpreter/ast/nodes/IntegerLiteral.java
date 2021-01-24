@@ -11,6 +11,6 @@ public class IntegerLiteral implements Expression {
 
 	@Override
 	public void accept(Visitor visitor) {
-		System.out.print(value);
+		visitor.visit(this);
 	}
 }

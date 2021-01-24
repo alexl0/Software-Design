@@ -1,21 +1,31 @@
 package interpreter.visitor;
 
+import interpreter.ast.nodes.Assignment;
+import interpreter.ast.nodes.Division;
+import interpreter.ast.nodes.IntegerLiteral;
+import interpreter.ast.nodes.Print;
+import interpreter.ast.nodes.Product;
+import interpreter.ast.nodes.Program;
+import interpreter.ast.nodes.Read;
+import interpreter.ast.nodes.Sum;
+import interpreter.ast.nodes.Variable;
+
 public interface Visitor {
-	void visitAssignment();
+	void visit(Assignment assignment);
 
-	void visitDivision();
+	void visit(Division division);
 
-	void visitIntegerLiteral();
+	void visit(IntegerLiteral integerLiteral);
 
-	void visitPrint();
+	void visit(Print print);
 
-	void visitProduct();
+	void visit(Product product);
 
-	void visitProgram();
+	void visit(Program program);
 
-	void visitRead();
+	void visit(Read read);
 
-	void visitSum();
+	void visit(Sum sum);
 
-	void visitVariable();
+	void visit(Variable variable);
 }

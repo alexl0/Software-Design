@@ -11,8 +11,6 @@ public class Print implements Statement {
 
 	@Override
 	public void accept(Visitor visitor) {
-		System.out.print("print ");
-		expression.accept(visitor);
-		System.out.println(";");
+		visitor.visit(this);
 	}
 }

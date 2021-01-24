@@ -11,6 +11,6 @@ public class Variable implements Expression {
 
 	@Override
 	public void accept(Visitor visitor) {
-		System.out.print(name);
+		visitor.visit(this);
 	}
 }

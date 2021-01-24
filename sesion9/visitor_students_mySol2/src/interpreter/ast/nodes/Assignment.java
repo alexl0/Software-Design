@@ -13,9 +13,6 @@ public class Assignment implements Statement {
 
 	@Override
 	public void accept(Visitor visitor) {
-		variable.accept(visitor);
-		System.out.print(" = ");
-		expression.accept(visitor);
-		System.out.println(";");
+		visitor.visit(this);
 	}
 }

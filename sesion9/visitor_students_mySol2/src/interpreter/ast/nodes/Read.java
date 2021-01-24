@@ -11,8 +11,6 @@ public class Read implements Statement {
 
 	@Override
 	public void accept(Visitor visitor) {
-		System.out.print("read ");
-		variable.accept(visitor);
-		System.out.println(";");
+		visitor.visit(this);
 	}
 }

@@ -12,9 +12,6 @@ public class Division implements Expression {
 
 	@Override
 	public void accept(Visitor visitor) {
-		left.accept(visitor);
-		System.out.print(" / ");
-		right.accept(visitor);
+		visitor.visit(this);
 	}
-
 }
