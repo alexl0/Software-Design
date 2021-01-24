@@ -1,58 +1,48 @@
 package poll;
 
-public class Poll 
-{
+public class Poll {
 	private int yeses, nos;
 	private String question;
-	
-	public Poll(String question) 
-	{
+
+	public Poll(String question) {
 		this.question = question;
 	}
 
-	public String getQuestion() 
-	{
+	public String getQuestion() {
 		return question;
 	}
 
-	public int getYeses() 
-	{
+	public int getYeses() {
 		return yeses;
 	}
 
-	public int getNos() 
-	{
+	public int getNos() {
 		return nos;
 	}
 
-	public void incrementYeses() 
-	{
+	public void incrementYeses() {
 		yeses++;
 		updatePieChart();
 		updateBarChart();
 		saveResults();
 	}
 
-	public void incrementNos() 
-	{
+	public void incrementNos() {
 		nos++;
 		updatePieChart();
 		updateBarChart();
 		saveResults();
 	}
 
-	private void updateBarChart() 
-	{
+	private void updateBarChart() {
 		System.out.println("Dibujando un gráfico de barras...");
 	}
 
-	private void updatePieChart() 
-	{
+	private void updatePieChart() {
 		System.out.println("Dibujando un gráfico circular...");
 	}
 
-	private void saveResults() 
-	{
+	private void saveResults() {
 		System.out.println("Guardando los resultados...");
 	}
 }

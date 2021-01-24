@@ -8,12 +8,12 @@ import poll.observer.Observer;
 public class Poll {
 	private int yeses, nos;
 	private String question;
-	
-	private List<Observer>observers;
-	
+
+	private List<Observer> observers;
+
 	public Poll(String question) {
 		this.question = question;
-		this.observers=new ArrayList<Observer>();
+		this.observers = new ArrayList<Observer>();
 	}
 
 	public String getQuestion() {
@@ -39,12 +39,12 @@ public class Poll {
 	}
 
 	private void updateObservers() {
-		for(Observer o:observers)
+		for (Observer o : observers)
 			o.update(this);
 	}
 
 	public void addObserver(Observer observer) {
 		observers.add(observer);
 	}
-	
+
 }

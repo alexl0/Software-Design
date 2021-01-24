@@ -14,9 +14,9 @@ public class Main {
 
 		poll.addObserver(new BarChart());
 		poll.addObserver(new LineaEstado());
-		//poll.addObserver(new APartirDeTalVoto(new PieChart(), 3) );
-		poll.addObserver(new APartirDeTalVoto(new CadaXVotos(new PieChart(), 2), 4 ));
-		
+		// poll.addObserver(new APartirDeTalVoto(new PieChart(), 3) );
+		poll.addObserver(new APartirDeTalVoto(new CadaXVotos(new PieChart(), 2), 4));
+
 		Interviewer interviewer = new Interviewer();
 		interviewer.fill(poll);
 	}

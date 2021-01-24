@@ -7,15 +7,15 @@ public class CadaXVotos implements Observer {
 
 	Observer observer;
 	int xVotos;
-	
+
 	public CadaXVotos(Observer observer, int xVotos) {
-		this.observer=observer;
-		this.xVotos=xVotos;
+		this.observer = observer;
+		this.xVotos = xVotos;
 	}
-	
+
 	@Override
 	public void update(Poll poll) {
-		if( (poll.getYeses()+poll.getNos()) % xVotos ==0)
+		if ((poll.getYeses() + poll.getNos()) % xVotos == 0)
 			observer.update(poll);
 	}
 
