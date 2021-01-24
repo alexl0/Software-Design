@@ -12,7 +12,7 @@ public class Main4 {
 	public static void main(String[] args) throws IOException {
 		Poll poll = new Poll("¿Está a favor de la energia nuclear?");
 
-		poll.addObserver(new CadaXVotos(new BarChartObserver(),3));
+		poll.addObserver(new CadaXVotos(new BarChartObserver(), 3));
 		poll.addObserver(new LineaEstadoObserver());
 		poll.addObserver(new PieChartObserver());
 

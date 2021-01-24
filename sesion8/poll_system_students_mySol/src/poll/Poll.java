@@ -5,40 +5,33 @@ import java.util.List;
 
 import poll.observers.PollObserver;
 
-public class Poll 
-{
+public class Poll {
 	private int yeses, nos;
 	private String question;
-	private List<PollObserver> observers=new ArrayList<PollObserver>();
+	private List<PollObserver> observers = new ArrayList<PollObserver>();
 
-	public Poll(String question) 
-	{
+	public Poll(String question) {
 		this.question = question;
 	}
 
-	public String getQuestion() 
-	{
+	public String getQuestion() {
 		return question;
 	}
 
-	public int getYeses() 
-	{
+	public int getYeses() {
 		return yeses;
 	}
 
-	public int getNos() 
-	{
+	public int getNos() {
 		return nos;
 	}
 
-	public void incrementYeses() 
-	{
+	public void incrementYeses() {
 		yeses++;
 		updateObservers(this);
 	}
 
-	public void incrementNos() 
-	{
+	public void incrementNos() {
 		nos++;
 		updateObservers(this);
 	}
@@ -48,7 +41,7 @@ public class Poll
 	}
 
 	private void updateObservers(Poll poll) {
-		for(PollObserver each:observers)
+		for (PollObserver each : observers)
 			each.update(poll);
 	}
 }

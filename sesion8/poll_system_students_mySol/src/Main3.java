@@ -12,7 +12,7 @@ public class Main3 {
 		Poll poll = new Poll("¿Está a favor de la energia nuclear?");
 
 		poll.addObserver(new LineaEstadoObserver());
-		poll.addObserver(new APartirDeTalVoto(new PieChartObserver(),4));
+		poll.addObserver(new APartirDeTalVoto(new PieChartObserver(), 4));
 
 		Interviewer interviewer = new Interviewer();
 		interviewer.fill(poll);
