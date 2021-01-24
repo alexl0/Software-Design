@@ -1,15 +1,22 @@
+package editor.ui;
+
 import java.io.*;
-import java.util.regex.*;
+import java.util.Arrays;
 
-public class Main 
-{
+import editor.Editor;
+
+public class EditorTextUI {
 	private static BufferedReader in;
-	private static StringBuilder texto;
+	private Editor editor;
 
-	public static void main(String[] args) throws IOException 
-	{
+	public EditorTextUI(Editor editor) {
+		if (editor == null)
+			throw new IllegalArgumentException("La interfaz de usuario necesita una referencia al editor");
+		this.editor = editor;
+	}
+
+	public void run() throws IOException {
 		in = new BufferedReader(new InputStreamReader(System.in));
-		texto = new StringBuilder("");
 
 		System.out.println("Acciones");
 		System.out.println("--------");
@@ -37,43 +44,25 @@ public class Main
 				return;
 
 			if (line[0].equals("abre")) {
-				texto = readFile(line[1]);
+				editor.open(line[1]);
 			} else if (line[0].startsWith("ins")) {
-				for (int i = 1; i < line.length; i++) {
-					texto.append(line[i] + " ");
-				}
+				String[] wordsToAppend = Arrays.copyOfRange(line, 1, line.length);
+				editor.insert(wordsToAppend);
 			} else if (line[0].startsWith("borr")) {
-				int indexOfLastWord = texto.toString().trim().lastIndexOf(" ");
-				if (indexOfLastWord == -1)
-					texto = new StringBuilder("");
-				else
-					texto.setLength(indexOfLastWord + 1);
+				editor.removeLastWord();
 			} else if (line[0].startsWith("reem")) {
-				texto = new StringBuilder(texto.toString().replaceAll(Pattern.quote(line[1]), line[2]));
+				editor.replace(line[1], line[2]);
 			} else if (line[0].startsWith("graba")) {
-				;
+				editor.recordMacro(line[1]);
 			} else if (line[0].startsWith("para")) {
-				;
+				editor.stop();
 			} else if (line[0].startsWith("ejecuta")) {
-				;
+				editor.executeMacro(line[1]);
 			} else {
 				System.out.println("Instrucción desconocida");
 			}
 
-			System.out.println(texto);
-
+			System.out.println(editor.getText());
 		} while (true);
-	}
-
-	static StringBuilder readFile(String filename) throws IOException 
-	{
-		BufferedReader input = new BufferedReader(new FileReader(filename));
-		String line;
-		StringBuilder result = new StringBuilder();
-		while ((line = input.readLine()) != null) {
-			result.append(line);
-		}
-		input.close();
-		return result;
 	}
 }
