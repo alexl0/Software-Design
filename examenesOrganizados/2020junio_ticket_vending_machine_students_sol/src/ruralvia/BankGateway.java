@@ -10,25 +10,19 @@ package ruralvia;
  	Nota: ESTA CLASE NO SE PUEDE MODIFICAR.
  	      --------------------------------
  */
-public class BankGateway 
-{
+public class BankGateway {
 	private static final String[] validCreditCards = { "1111", "2222", "3333" };
-	
-	public boolean pay(String cardNumber, double amount) 
-	{
+
+	public boolean pay(String cardNumber, double amount) {
 		if (!isValid(cardNumber))
 			return false;
-		String messageOk = ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>%n" +
-				"Pagando en el banco...%n" +
-				"Nº de tarjeta: %s%n" +
-				"Importe: %.2f €%n" +
-				">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>%n";
+		String messageOk = ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>%n" + "Pagando en el banco...%n"
+				+ "Nº de tarjeta: %s%n" + "Importe: %.2f €%n" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>%n";
 		System.out.printf(messageOk, cardNumber, amount);
 		return true;
 	}
-	
-	private boolean isValid(String cardNumber)
-	{
+
+	private boolean isValid(String cardNumber) {
 		for (int i = 0; i < validCreditCards.length; i++) {
 			if (validCreditCards[i].equals(cardNumber))
 				return true;

@@ -1,9 +1,9 @@
 package adapter;
 
 //Patron Adapter
+
 //Adapter
 //Este seria el adaptador especifico que implementa la interfaz Adapter transformando las peticiones provenientes de Paypal al lenguaje de la maquina
-
 
 import machine.hardware.Display;
 import machine.hardware.Keyboard;
@@ -22,7 +22,7 @@ public class PaypalAdapter implements Adapter {
 
 	@Override
 	public void pay(double amount) {
-		paypalApi.checkout(token,	amount);
+		paypalApi.checkout(token, amount);
 
 	}
 
@@ -33,9 +33,9 @@ public class PaypalAdapter implements Adapter {
 
 		display.show("\nIntroduzca contraseña de PayPal: ");
 		String pass = keyboard.readString();
-		token	=	paypalApi.logIn(user,	pass);	
+		token = paypalApi.logIn(user, pass);
 
-		if	(!paypalApi.isLogged(token)) {
+		if (!paypalApi.isLogged(token)) {
 			display.show("\nNombre	de	usuario	o	contraseña	incorrectas.");
 			return false;
 

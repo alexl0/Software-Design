@@ -1,7 +1,7 @@
 package model;
 
 public class Mobile {
-	
+
 	private String brand;
 	private String model;
 

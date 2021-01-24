@@ -1,33 +1,27 @@
 package model;
 
-public class Mobile 
-{
-	public Mobile(String brand, String model) 
-	{
+public class Mobile {
+	public Mobile(String brand, String model) {
 		setBrand(brand);
 		setModel(model);
 	}
 
-	public void setBrand(String brand) 
-	{
+	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 
-	public String getBrand() 
-	{
+	public String getBrand() {
 		return brand;
 	}
 
-	public void setModel(String model) 
-	{
+	public void setModel(String model) {
 		this.model = model;
 	}
 
-	public String getModel() 
-	{
+	public String getModel() {
 		return model;
 	}
-	
+
 	private String brand;
-	private String model;	
+	private String model;
 }

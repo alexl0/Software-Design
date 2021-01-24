@@ -12,24 +12,20 @@ import java.util.Scanner;
  	Nota: COMO CONTROLADOR DE HARDWARE QUE ES, NO PUEDE SER MODIFICADA.
  	      ------------------------------------------------------------
 */
-public class BillAcceptor 
-{
+public class BillAcceptor {
 	private Scanner scanner = new Scanner(System.in);
-	
+
 	private int totalAmount;
-	
-	public void reset()
-	{
+
+	public void reset() {
 		totalAmount = 0;
 	}
-	
-	public int getTotalAmount()
-	{
+
+	public int getTotalAmount() {
 		return totalAmount;
 	}
-	
-	public int insertBill()
-	{
+
+	public int insertBill() {
 		do {
 			try {
 				System.out.print("Introduzca billete (0 para cancelar): ");
@@ -42,14 +38,12 @@ public class BillAcceptor
 		} while (true);
 	}
 
-	public void returnChange(double change)
-	{
+	public void returnChange(double change) {
 		System.out.printf("Devolviendo %.2f euros...%n", change);
 	}
-	
+
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return String.format("Ranura para billetes (importe introducido = %d euros)", totalAmount);
 	}
 }

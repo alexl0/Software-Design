@@ -2,7 +2,6 @@ package editor.actions;
 
 import editor.Editor;
 
-public interface Action 
-{
+public interface Action {
 	void execute(Editor editor);
 }

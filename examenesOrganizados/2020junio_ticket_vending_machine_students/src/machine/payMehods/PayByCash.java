@@ -7,7 +7,7 @@ public class PayByCash implements PayMethod {
 
 	private BillAcceptor billAcceptor = new BillAcceptor();
 	private Display display = new Display();
-	
+
 	@Override
 	public boolean pay(double amount) {
 		int insertedAmount = 0;
@@ -20,7 +20,7 @@ public class PayByCash implements PayMethod {
 			if (inserted == 0)
 				cancel = true;
 		} while (insertedAmount < amount && !cancel);
-		
+
 		if (cancel) {
 			display.show("Operación cancelada por el usuario\n");
 			// si antes de cancelar había introducido dinero, se le devuelve
@@ -32,7 +32,7 @@ public class PayByCash implements PayMethod {
 		// se devuelve el cambio
 		if (insertedAmount > amount) {
 			billAcceptor.returnChange(insertedAmount - amount);
-		} 
+		}
 		return true;
 	}
 

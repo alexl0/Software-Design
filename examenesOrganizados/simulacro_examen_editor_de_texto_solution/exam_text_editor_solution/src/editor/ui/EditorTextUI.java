@@ -5,20 +5,17 @@ import java.util.Arrays;
 
 import editor.Editor;
 
-public class EditorTextUI 
-{
+public class EditorTextUI {
 	private static BufferedReader in;
 	private Editor editor;
-	
-	public EditorTextUI(Editor editor)
-	{
+
+	public EditorTextUI(Editor editor) {
 		if (editor == null)
 			throw new IllegalArgumentException("La interfaz de usuario necesita una referencia al editor");
 		this.editor = editor;
 	}
-	
-	public void run() throws IOException
-	{
+
+	public void run() throws IOException {
 		in = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Acciones");
@@ -40,7 +37,7 @@ public class EditorTextUI
 			System.out.print("> ");
 
 			String[] line = in.readLine().split(" ");
-			
+
 			// No se comprueba que el número de palabras sea el adecuado
 
 			if (line[0].equals("salir"))
@@ -48,7 +45,7 @@ public class EditorTextUI
 
 			if (line[0].equals("abre")) {
 				editor.open(line[1]);
-			}  else if (line[0].startsWith("ins")) {
+			} else if (line[0].startsWith("ins")) {
 				String[] wordsToAppend = Arrays.copyOfRange(line, 1, line.length);
 				editor.insert(wordsToAppend);
 			} else if (line[0].startsWith("borr")) {

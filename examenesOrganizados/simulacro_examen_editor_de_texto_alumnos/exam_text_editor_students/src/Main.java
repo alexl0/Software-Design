@@ -1,13 +1,11 @@
 import java.io.*;
 import java.util.regex.*;
 
-public class Main 
-{
+public class Main {
 	private static BufferedReader in;
 	private static StringBuilder texto;
 
-	public static void main(String[] args) throws IOException 
-	{
+	public static void main(String[] args) throws IOException {
 		in = new BufferedReader(new InputStreamReader(System.in));
 		texto = new StringBuilder("");
 
@@ -30,7 +28,7 @@ public class Main
 			System.out.print("> ");
 
 			String[] line = in.readLine().split(" ");
-			
+
 			// No se comprueba que el número de palabras sea el adecuado
 
 			if (line[0].equals("salir"))
@@ -61,12 +59,11 @@ public class Main
 			}
 
 			System.out.println(texto);
-			
+
 		} while (true);
 	}
 
-	static StringBuilder readFile(String filename) throws IOException 
-	{
+	static StringBuilder readFile(String filename) throws IOException {
 		BufferedReader input = new BufferedReader(new FileReader(filename));
 		String line;
 		StringBuilder result = new StringBuilder();

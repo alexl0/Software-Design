@@ -18,10 +18,8 @@ public class GeneradorEmparejamientos {
 		// los que tiene que jugar 'equipo_N'
 		for (Equipo equipo : equipos) {
 			for (Equipo candidato : equipos) {
-				if (equipo != candidato
-						&& !emparejamientos.get(equipo).contains(candidato)) {
-					if (equipo.isMasculino() == candidato.isMasculino()
-							&& equipo.getEdad() == candidato.getEdad()) {
+				if (equipo != candidato && !emparejamientos.get(equipo).contains(candidato)) {
+					if (equipo.isMasculino() == candidato.isMasculino() && equipo.getEdad() == candidato.getEdad()) {
 						emparejamientos.get(equipo).add(candidato);
 						emparejamientos.get(candidato).add(equipo);
 					}

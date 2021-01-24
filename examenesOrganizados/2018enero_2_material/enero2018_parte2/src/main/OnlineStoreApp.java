@@ -6,16 +6,13 @@ import model.*;
 import server.*;
 import view.Table;
 
-public class OnlineStoreApp 
-{
-	public static void main(String[] args) 
-	{
+public class OnlineStoreApp {
+	public static void main(String[] args) {
 		OnlineStoreApp store = new OnlineStoreApp();
 		store.openWindow();
 	}
 
-	public void openWindow() 
-	{
+	public void openWindow() {
 		Server server = new Server();
 
 		List<CompactDisc> discs = server.downloadCompactDiscs();
@@ -28,16 +25,13 @@ public class OnlineStoreApp
 		table.drawTable();
 
 		/*
-		  	Se muestra por pantalla la siguiente tabla:
-		 
-			+---------------+----------------+
-			| Título        | Artista        |
-			+---------------+----------------+
-			| Despacito     | Luis Fonsi     |
-			| Dragon's Kiss | Marty Friedman |
-			+---------------+----------------+
+		 * Se muestra por pantalla la siguiente tabla:
+		 * 
+		 * +---------------+----------------+ | Título | Artista |
+		 * +---------------+----------------+ | Despacito | Luis Fonsi | | Dragon's Kiss
+		 * | Marty Friedman | +---------------+----------------+
 		 */
-	
+
 		// 2. Modificamos los datos
 		System.out.println("Modificando los datos...");
 		discs.get(0).setArtist("Metallica");
@@ -51,16 +45,14 @@ public class OnlineStoreApp
 		table.drawTable();
 
 		/*
-		  	Tras la modificación, ésta es la nueva ventana que se muestra:
-		 
-			+--------------------------+----------------+
-			| Título                   | Artista        |
-			+--------------------------+----------------+
-			| For Whom the Bells Tolls | Metallica      |
-			| Dragon's Kiss            | Marty Friedman |
-			+--------------------------+----------------+
+		 * Tras la modificación, ésta es la nueva ventana que se muestra:
+		 * 
+		 * +--------------------------+----------------+ | Título | Artista |
+		 * +--------------------------+----------------+ | For Whom the Bells Tolls |
+		 * Metallica | | Dragon's Kiss | Marty Friedman |
+		 * +--------------------------+----------------+
 		 */
-		
+
 		// 4. Se suben al servidor
 		server.uploadCompactDiscs(discs);
 	}

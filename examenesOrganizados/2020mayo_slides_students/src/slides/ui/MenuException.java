@@ -5,12 +5,10 @@ package slides.ui;
  * comprobaciones que se realizan en las operaciones del menú para evitar
  * situaciones que no deberían darse.
  */
-public class MenuException extends RuntimeException
-{
-   private static final long serialVersionUID = 1L;
+public class MenuException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
 
-   public MenuException(String message)
-   {
-       super(message);
-   }
+	public MenuException(String message) {
+		super(message);
+	}
 }

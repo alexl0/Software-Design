@@ -1,6 +1,5 @@
 package slides.layout;
 
-public enum LayoutType 
-{
-    NORMAL, COLUMNS, GRID;
+public enum LayoutType {
+	NORMAL, COLUMNS, GRID;
 }

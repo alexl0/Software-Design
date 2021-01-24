@@ -11,8 +11,7 @@ import org.junit.Test;
 
 public class GeneradorEmparejamientosTest {
 	private GeneradorEmparejamientos generador;
-	private Equipo callealteros, racingTenderina, ramonPelayo, realUria,
-			maragatos, sportingLeon;
+	private Equipo callealteros, racingTenderina, ramonPelayo, realUria, maragatos, sportingLeon;
 	private List<Equipo> equipos;
 
 	@Before
@@ -21,10 +20,8 @@ public class GeneradorEmparejamientosTest {
 		equipos = new ArrayList<Equipo>();
 
 		callealteros = new Equipo("Callealteros", "Cantabria", true, 10);
-		racingTenderina = new Equipo("Racing de Tenderina", "Asturias", false,
-				11);
-		ramonPelayo = new Equipo("Colegio Ramón Pelayo", "Cantabria", false,
-				10);
+		racingTenderina = new Equipo("Racing de Tenderina", "Asturias", false, 11);
+		ramonPelayo = new Equipo("Colegio Ramón Pelayo", "Cantabria", false, 10);
 		realUria = new Equipo("Real Uría", "Asturias", true, 10);
 		maragatos = new Equipo("Los Maragatos", "León", true, 10);
 		sportingLeon = new Equipo("Sporting de León", "León", false, 11);
@@ -41,8 +38,7 @@ public class GeneradorEmparejamientosTest {
 	public void testEmpareja() {
 		Map<Equipo, List<Equipo>> emparejamientos = generador.empareja(equipos);
 		// Racing de Tenderina
-		List<Equipo> contrincantesRacingTenderina = emparejamientos
-				.get(racingTenderina);
+		List<Equipo> contrincantesRacingTenderina = emparejamientos.get(racingTenderina);
 		assertEquals(1, contrincantesRacingTenderina.size());
 		assertTrue(contrincantesRacingTenderina.contains(sportingLeon));
 		// Maragatos
@@ -51,8 +47,7 @@ public class GeneradorEmparejamientosTest {
 		assertTrue(contrincantesMaragatos.contains(callealteros));
 		assertTrue(contrincantesMaragatos.contains(realUria));
 		// Sporting de León
-		List<Equipo> contrincantesSportingLeon = emparejamientos
-				.get(sportingLeon);
+		List<Equipo> contrincantesSportingLeon = emparejamientos.get(sportingLeon);
 		assertEquals(1, contrincantesSportingLeon.size());
 		assertTrue(contrincantesSportingLeon.contains(racingTenderina));
 		// Real Uría
@@ -61,14 +56,12 @@ public class GeneradorEmparejamientosTest {
 		assertTrue(contrincantesRealUria.contains(callealteros));
 		assertTrue(contrincantesRealUria.contains(maragatos));
 		// Callealteros
-		List<Equipo> contrincantesCallealteros = emparejamientos
-				.get(callealteros);
+		List<Equipo> contrincantesCallealteros = emparejamientos.get(callealteros);
 		assertEquals(2, contrincantesCallealteros.size());
 		assertTrue(contrincantesCallealteros.contains(realUria));
 		assertTrue(contrincantesCallealteros.contains(maragatos));
 		// Colegio Ramón Pelayo
-		List<Equipo> contrincantesRamonPelayo = emparejamientos
-				.get(ramonPelayo);
+		List<Equipo> contrincantesRamonPelayo = emparejamientos.get(ramonPelayo);
 		assertEquals(0, contrincantesRamonPelayo.size());
 	}
 }

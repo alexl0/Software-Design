@@ -6,8 +6,7 @@ public class Equipo {
 	private boolean masculino;
 	private int edad;
 
-	public Equipo(String nombre, String provincia, boolean masculino,
-			int edad) {
+	public Equipo(String nombre, String provincia, boolean masculino, int edad) {
 		this.nombre = nombre;
 		this.provincia = provincia;
 		this.masculino = masculino;
@@ -33,7 +32,6 @@ public class Equipo {
 	@Override
 	public String toString() {
 		String categoriaPorSexo = masculino ? "masculino" : "femenino";
-		return String.format("'%s' [%s, %s, %d años]", nombre, provincia,
-				categoriaPorSexo, edad);
+		return String.format("'%s' [%s, %s, %d años]", nombre, provincia, categoriaPorSexo, edad);
 	}
 }

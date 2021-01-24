@@ -8,52 +8,45 @@ import java.util.Map;
 
 import slides.content.Placeholder;
 
-public class Layout implements Cloneable
-{
-    // asocia los marcadores de posición de esta disposición con la posición
-    // que ocupan en el mismo (simulada aquí mediante una simple cadena de texto
-    // como "CENTER", "TOP", "BOTTOM_LEFT" o similares; en un caso real sería
-    // un objeto con toda la información necesaria para cada tipo de layout)
-    private Map<Placeholder, String> positions = new LinkedHashMap<>();
-    // los marcadores de posición (títulos, listas, imágenes...) de este layout
-    private List<Placeholder> placeholders = new ArrayList<>();
+public class Layout implements Cloneable {
+	// asocia los marcadores de posición de esta disposición con la posición
+	// que ocupan en el mismo (simulada aquí mediante una simple cadena de texto
+	// como "CENTER", "TOP", "BOTTOM_LEFT" o similares; en un caso real sería
+	// un objeto con toda la información necesaria para cada tipo de layout)
+	private Map<Placeholder, String> positions = new LinkedHashMap<>();
+	// los marcadores de posición (títulos, listas, imágenes...) de este layout
+	private List<Placeholder> placeholders = new ArrayList<>();
 
-    private LayoutType type;
-    
-    public Layout(LayoutType type)
-    {
-        this.type = type;
-    }
+	private LayoutType type;
 
-    public LayoutType getType()
-    {
-        return type;
-    }
+	public Layout(LayoutType type) {
+		this.type = type;
+	}
 
-    public void addPlaceholder(String position, Placeholder placeholder) 
-    {
-        placeholders.add(placeholder);
-        positions.put(placeholder, position);
-    }
+	public LayoutType getType() {
+		return type;
+	}
 
-    public List<Placeholder> getPlaceholders()
-    {
-        return Collections.unmodifiableList(placeholders);
-    }
+	public void addPlaceholder(String position, Placeholder placeholder) {
+		placeholders.add(placeholder);
+		positions.put(placeholder, position);
+	}
 
-    public String getPosition(Placeholder placeholder)
-    {
-        if (!positions.containsKey(placeholder))
-            throw new IllegalArgumentException("Este layout no contiene ese marcador: " + placeholder);
-        return positions.get(placeholder);
-    }
+	public List<Placeholder> getPlaceholders() {
+		return Collections.unmodifiableList(placeholders);
+	}
 
-    @Override
-    public String toString()
-    {
-        return type.getText();
-    }
-    
+	public String getPosition(Placeholder placeholder) {
+		if (!positions.containsKey(placeholder))
+			throw new IllegalArgumentException("Este layout no contiene ese marcador: " + placeholder);
+		return positions.get(placeholder);
+	}
+
+	@Override
+	public String toString() {
+		return type.getText();
+	}
+
 //    public Layout clone() {
 //    	try {
 //    		//Layout layout = (Layout) super.clone();

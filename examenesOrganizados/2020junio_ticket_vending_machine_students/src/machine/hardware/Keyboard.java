@@ -10,34 +10,30 @@ import java.util.Scanner;
  	funcionamiento de algún dispositivo físico, es decir, que no haría falta en
  	un caso real, en cuyo caso se hace leyendo de la entrada estándar directamente).
  */
-public class Keyboard 
-{
+public class Keyboard {
 	private Scanner input = new Scanner(System.in);
-	
-	public int readInt()
-	{
+
+	public int readInt() {
 		do {
 			try {
-				return Integer.valueOf(input.nextLine());			
+				return Integer.valueOf(input.nextLine());
 			} catch (NumberFormatException e) {
 				System.out.print("Se espera un valor entero: ");
 			}
 		} while (true);
 	}
-	
-	public String readString()
-	{
+
+	public String readString() {
 		return input.nextLine();
 	}
-	
+
 	/*
-	 	Permite seleccionar una opción de entre varias. Para ello el usuario
-	 	debe introducir un número entre 1 y el número de opciones especificado.
-	 	¡Ojo!, que si se quiere utilizarlo como índice para seleccionar de una
-	 	lista, que será lo habitual, habrá que restar uno al valor devuelto. 
+	 * Permite seleccionar una opción de entre varias. Para ello el usuario debe
+	 * introducir un número entre 1 y el número de opciones especificado. ¡Ojo!, que
+	 * si se quiere utilizarlo como índice para seleccionar de una lista, que será
+	 * lo habitual, habrá que restar uno al valor devuelto.
 	 */
-	public int readOption(int numberOfOptions)
-	{
+	public int readOption(int numberOfOptions) {
 		do {
 			int option = readInt();
 			if (option >= 1 && option <= numberOfOptions)

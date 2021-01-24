@@ -12,12 +12,10 @@ import java.util.Scanner;
  	Nota: COMO CONTROLADOR DE HARDWARE QUE ES, NO PUEDE SER MODIFICADA.
  	      ------------------------------------------------------------
  */
-public class CardReader 
-{
+public class CardReader {
 	private Scanner input = new Scanner(System.in);
 
-	public String readCardNumber()
-	{
+	public String readCardNumber() {
 		System.out.println("Leyendo datos de la tarjeta...");
 		// simula la lectura de la tarjeta preguntando su información al usuario
 		System.out.print("Número de tarjeta: ");

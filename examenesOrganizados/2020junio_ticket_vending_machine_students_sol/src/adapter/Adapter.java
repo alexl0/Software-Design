@@ -8,7 +8,7 @@ package adapter;
 
 public interface Adapter {
 
-	
 	void pay(double amount);
+
 	boolean isValid();
 }

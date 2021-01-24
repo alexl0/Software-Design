@@ -10,27 +10,24 @@ import remote.Remote.Button;
 //(Remote) indicándole qué botón ha sido pulsado. (En nuestro caso se simula
 //con un menú de texto por consola.)
 //
-public class ButtonController 
-{
+public class ButtonController {
 	private Remote remote;
 	private BufferedReader input;
 	private PrintStream output = System.out;
-	
-	public ButtonController(Remote remote)
-	{
+
+	public ButtonController(Remote remote) {
 		this.remote = remote;
 		input = new BufferedReader(new InputStreamReader(System.in));
 	}
-	
-	public void run() throws IOException
-	{
+
+	public void run() throws IOException {
 		while (true) {
 			remote.show(output);
 			output.println("Pulse uno de los botones del mando ([S] para salir):");
 			output.print("> ");
 			output.flush();
 			String userInput = input.readLine();
-			
+
 			if (userInput.trim().toUpperCase().equals("S")) {
 				output.println("¡Adiós!");
 				return;
@@ -41,12 +38,12 @@ public class ButtonController
 				if (buttonNumber < 1 || buttonNumber > 6) {
 					output.println("Se esperaba un número de botón (entre 1 y 6)");
 				} else {
-					remote.buttonPressed(Button.values()[buttonNumber - 1]);					
+					remote.buttonPressed(Button.values()[buttonNumber - 1]);
 				}
 			} catch (NumberFormatException e) {
 				output.println("Se esperaba un número de botón");
 			} catch (Exception e) {
-				output.println(e.getMessage());		
+				output.println(e.getMessage());
 			}
 		}
 	}

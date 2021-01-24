@@ -22,7 +22,7 @@ public class PayByCash implements Pay {
 			if (inserted == 0)
 				cancel = true;
 		} while (insertedAmount < amount && !cancel);
-		
+
 		if (cancel) {
 			display.show("Operación cancelada por el usuario\n");
 			// si antes de cancelar había introducido dinero, se le devuelve
@@ -34,7 +34,7 @@ public class PayByCash implements Pay {
 		// se devuelve el cambio
 		if (insertedAmount > amount) {
 			billAcceptor.returnChange(insertedAmount - amount);
-		} 
+		}
 		return true;
 	}
 

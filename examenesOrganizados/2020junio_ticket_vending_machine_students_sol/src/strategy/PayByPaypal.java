@@ -21,7 +21,7 @@ public class PayByPaypal implements Pay {
 	public boolean pay(double amount) {
 		adapter = new PaypalAdapter();
 
-		if(adapter.isValid()) {
+		if (adapter.isValid()) {
 			adapter.pay(amount);
 			return true;
 		}

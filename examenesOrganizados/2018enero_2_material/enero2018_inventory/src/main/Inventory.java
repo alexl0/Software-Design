@@ -7,14 +7,12 @@ import server.*;
 
 public class Inventory {
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		Inventory tienda = new Inventory();
 		tienda.openWindow();
 	}
 
-	public void openWindow() 
-	{
+	public void openWindow() {
 		int stockItems = 0;
 		Server server = new Server();
 

@@ -1,9 +1,7 @@
 package paypal;
 
-
 //Patron Adapter
 //Este sería el elemento Adaptee que es la clase existente cuya interfaz necesita ser adaptada
-
 
 import java.util.*;
 
@@ -30,24 +28,19 @@ import java.util.*;
  	Nota: ESTA CLASE NO SE PUEDE MODIFICAR.
  	      --------------------------------
  */
-public class PayPalAPI 
-{
+public class PayPalAPI {
 	public static final String INVALID_LOGIN = "invalid login";
 
 	private static final int USERNAME = 0;
 	private static final int PASSWORD = 1;
-	
-	private String[][] users = { 
-			{"ana@gmail.com", "ana"},
-			{"juan@gmail.com", "juan"},
-			{"lucia@uniovi.es", "lucia"}
-	};
-		
+
+	private String[][] users = { { "ana@gmail.com", "ana" }, { "juan@gmail.com", "juan" },
+			{ "lucia@uniovi.es", "lucia" } };
+
 	private List<String> sessionTokens = new ArrayList<>();
 	private Random random = new Random();
-	
-	public String logIn(String username, String password)
-	{
+
+	public String logIn(String username, String password) {
 		for (Object[] user : users) {
 			if (user[USERNAME].equals(username) && user[PASSWORD].equals(password)) {
 				String sessionToken = generateToken();
@@ -57,19 +50,16 @@ public class PayPalAPI
 		}
 		return INVALID_LOGIN;
 	}
-	
-	private String generateToken()
-	{
-		return String.valueOf(random.nextLong()); 
+
+	private String generateToken() {
+		return String.valueOf(random.nextLong());
 	}
-	
-	public boolean isLogged(String token)
-	{
+
+	public boolean isLogged(String token) {
 		return sessionTokens.contains(token);
 	}
-	
-	public boolean checkout(String token, double amount)
-	{
+
+	public boolean checkout(String token, double amount) {
 		if (!isLogged(token)) {
 			System.out.println("PayPal: no se ha iniciado sesión, no se puede realizar el pago");
 			return false;

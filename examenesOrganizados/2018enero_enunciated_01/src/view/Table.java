@@ -59,8 +59,8 @@ public class Table {
 	}
 
 	/**
-	 * Si el ancho del texto recibido como parámetro es menor que el deseado
-	 * añade espacios hasta que el texto tenga el número de caracteres deseado.
+	 * Si el ancho del texto recibido como parámetro es menor que el deseado añade
+	 * espacios hasta que el texto tenga el número de caracteres deseado.
 	 * 
 	 * Ejemplo: fillWithBlanks("abc", 5) -> "abc " (añade dos espacios)
 	 */
