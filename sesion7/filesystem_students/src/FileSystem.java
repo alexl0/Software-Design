@@ -1,7 +1,9 @@
 import java.io.*;
 
-public class FileSystem {
-	public void copyFile(String name, String newName) throws IOException {
+public class FileSystem 
+{
+	public void copyFile(String name, String newName) throws IOException 
+	{
 		FileWriter writer = new FileWriter(newName);
 
 		try {
@@ -19,7 +21,8 @@ public class FileSystem {
 		}
 	}
 
-	public void sendToInternet(String name, String url) {
+	public void sendToInternet(String name, String url) 
+	{
 		try {
 			StringWriter stringWriter = new StringWriter();
 			stringWriter.append("\n--- START Internet [" + url + "]\n");
@@ -40,7 +43,8 @@ public class FileSystem {
 		}
 	}
 
-	public void sendWithBluetooth(String name, String device) {
+	public void sendWithBluetooth(String name, String device) 
+	{
 		try {
 			StringWriter stringWriter = new StringWriter();
 			stringWriter.append("\n--- START Bluetooth [" + device + "]\n");
