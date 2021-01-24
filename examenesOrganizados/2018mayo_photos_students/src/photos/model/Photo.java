@@ -1,41 +1,35 @@
 package photos.model;
 
-public class Photo 
-{
+public class Photo {
 	private String image;
 
 	// valores de los ajustes predefinidos, inicializados a sus valores por omisión
-	private int brightness = 0, contrast = 0;	
+	private int brightness = 0, contrast = 0;
 	// si se han aplicado o no a la foto
 	private boolean isBrightnessEnabled, isContrastEnabled;
-	
-	public Photo(String filename)
-	{
+
+	public Photo(String filename) {
 		image = new String(filename);
 	}
-	
+
 	/**
-	 * Devuelve una copia de la imagen que representa esta fotografía a la que
-	 * se le han aplicado todos los ajustes realizados en la foto. Nótese que
-	 * este método no modifica la imagen original, sino que crea una copia de
-	 * la misma que es sobre la que se aplican los ajustes y la que finalmente
-	 * se devuelve.
-	 *  
-	 * @return un objeto {@code String} que representa la imagen generada
-	 *         resultante de aplicar los ajustes realizados a esta fotografía 
+	 * Devuelve una copia de la imagen que representa esta fotografía a la que se
+	 * le han aplicado todos los ajustes realizados en la foto. Nótese que este
+	 * método no modifica la imagen original, sino que crea una copia de la misma
+	 * que es sobre la que se aplican los ajustes y la que finalmente se devuelve.
+	 * 
+	 * @return un objeto {@code String} que representa la imagen generada resultante
+	 *         de aplicar los ajustes realizados a esta fotografía
 	 */
-	public String outputImage()
-	{
+	public String outputImage() {
 		String result = new String(image);
 		result = applyAdjustments(result);
 		return result;
 	}
-	
-	
-	//-- Ajustes
-	
-	private String applyAdjustments(String image)
-	{
+
+	// -- Ajustes
+
+	private String applyAdjustments(String image) {
 		String result = image;
 		if (isBrightnessEnabled)
 			result = applyBrightness(result);
@@ -43,19 +37,16 @@ public class Photo
 			result = applyContrast(result);
 		return result;
 	}
-	
-	private String applyBrightness(String image)
-	{
+
+	private String applyBrightness(String image) {
 		return image + String.format("\nBrillo: %+d", brightness);
 	}
-	
-	private String applyContrast(String image)
-	{
+
+	private String applyContrast(String image) {
 		return image + String.format("\nContraste: %+d", contrast);
 	}
-	
-	public void enableAdjustment(String adjustmentName)
-	{
+
+	public void enableAdjustment(String adjustmentName) {
 		if (adjustmentName.equalsIgnoreCase("brillo"))
 			isBrightnessEnabled = true;
 		else if (adjustmentName.equalsIgnoreCase("contraste"))
@@ -63,9 +54,8 @@ public class Photo
 		else
 			throw new IllegalArgumentException("Nombre de ajuste desconocido");
 	}
-	
-	public void setAdjustment(String adjustmentName, int value)
-	{
+
+	public void setAdjustment(String adjustmentName, int value) {
 		if (adjustmentName.equalsIgnoreCase("brillo")) {
 			brightness = value;
 			isBrightnessEnabled = true;
@@ -76,8 +66,7 @@ public class Photo
 			throw new IllegalArgumentException("Nombre de ajuste desconocido");
 	}
 
-	public void disableAdjustment(String adjustmentName)
-	{
+	public void disableAdjustment(String adjustmentName) {
 		if (adjustmentName.equalsIgnoreCase("brillo")) {
 			isBrightnessEnabled = false;
 			brightness = 0;
@@ -87,13 +76,11 @@ public class Photo
 		} else
 			throw new IllegalArgumentException("Nombre de ajuste desconocido");
 	}
-	
-	
-	//-- Otros métodos
-	
+
+	// -- Otros métodos
+
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return String.format(image);
 	}
 }

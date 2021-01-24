@@ -31,7 +31,6 @@ public class Controlador {
 		pantalla.imprimeJuegos(juegos);
 	}
 
-	
 	public void ordena(List<Juego> juegos, int campo) {
 		for (int i = 0; i < (juegos.size() - 1); i++) {
 			for (int j = 0; j < juegos.size() - i - 1; j++) {
