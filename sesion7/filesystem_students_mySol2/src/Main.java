@@ -3,6 +3,7 @@ import java.io.*;
 import output.Bluetooth;
 import output.CopyFile;
 import output.Internet;
+import output.filter.CalculateMD5;
 import output.filter.Counter;
 import output.filter.Encrypt;
 import output.filter.Normalizar;
@@ -54,6 +55,12 @@ public class Main {
 		System.out.println("\n##################### Modificacion 5 #####################\n");
 		system.sendFile("privado.txt", new Encrypt(new SendToThisDevices(new Internet("156.17.11.196"), new Bluetooth("Galaxy de Raul")) ));
 		
+
+		//Opcional 3 MD5
+		System.out.println("\n##################### Opcional 3 MD5 #####################\n");
+		CalculateMD5 calculateMD5=new CalculateMD5(new Encrypt(new Internet("156.17.11.196")));
+		system.sendFile("privado.txt", calculateMD5);
+		System.out.println("MD5: "+counter.getCount());
 		
 	}
 }
