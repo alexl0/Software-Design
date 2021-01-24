@@ -4,7 +4,7 @@ public class Discount_15EURACOS implements Discount {
 
 	@Override
 	public double getDiscount(double totalPrice, int numberOfTickets) {
-		return totalPrice-15;
+		return totalPrice - 15;
 	}
 
 	@Override

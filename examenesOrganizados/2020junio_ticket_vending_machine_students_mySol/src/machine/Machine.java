@@ -21,9 +21,9 @@ public class Machine {
 	private PayMethod payMethod;
 	private List<PayMethod> payMethods = new ArrayList<PayMethod>();
 
-	//Strategy
+	// Strategy
 	private Discount discount;
-	private List<Discount> discounts=new ArrayList<Discount>();
+	private List<Discount> discounts = new ArrayList<Discount>();
 
 	// -- Métodos públicos
 	// -------------------------------------------------------------------------
@@ -51,11 +51,11 @@ public class Machine {
 			display.show(String.format("Importe a pagar: %.2f €%n", amountToPay));
 
 			selectDiscount();
-			if(discount==null)
+			if (discount == null)
 				display.show("No hay descuento");
 			else {
-				amountToPay -=discount.getDiscount(amountToPay, numberOfTickets);
-				display.show("Descuento a aplicar: "+discount.getName());
+				amountToPay -= discount.getDiscount(amountToPay, numberOfTickets);
+				display.show("Descuento a aplicar: " + discount.getName());
 			}
 
 			selectPaymentMode();
@@ -86,12 +86,12 @@ public class Machine {
 	// -------------------------------------------------------------------------
 	private void selectPaymentMode() {
 		display.show("\nEscoja un método de pago:\n");
-		for(int i=1;i<=payMethods.size();i++) {
-			display.show("\t"+i+": "+payMethods.get(i-1).getClass().toString());
+		for (int i = 1; i <= payMethods.size(); i++) {
+			display.show("\t" + i + ": " + payMethods.get(i - 1).getClass().toString());
 		}
 		int option = keyboard.readOption(payMethods.size());
-		payMethod=payMethods.get(option-1);
-		display.show("Ha escojido el metodo de pago: "+payMethod.getClass().toString());
+		payMethod = payMethods.get(option - 1);
+		display.show("Ha escojido el metodo de pago: " + payMethod.getClass().toString());
 
 	}
 
@@ -100,9 +100,9 @@ public class Machine {
 	private void selectDiscount() {
 		display.show("\nIntroduzca un codigo de descuento:\n");
 		String code = keyboard.readString();
-		for(int i=0;i<discounts.size();i++) {
-			if(discounts.get(i).getName().equals(code)) {
-				discount=discounts.get(i);
+		for (int i = 0; i < discounts.size(); i++) {
+			if (discounts.get(i).getName().equals(code)) {
+				discount = discounts.get(i);
 				break;
 			}
 		}

@@ -5,7 +5,7 @@ public class Discount_VERANO20 implements Discount {
 
 	@Override
 	public double getDiscount(double totalPrice, int numberOfTickets) {
-		return totalPrice*0.2;
+		return totalPrice * 0.2;
 	}
 
 	@Override

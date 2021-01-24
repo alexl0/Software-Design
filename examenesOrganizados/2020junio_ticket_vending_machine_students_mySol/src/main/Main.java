@@ -26,7 +26,7 @@ public class Main {
 		machine.addPayMethod(new PayByCard());
 		machine.addPayMethod(new PayByCash());
 		machine.addPayMethod(new PayByPayPal());
-		
+
 		machine.addDiscount(new Discount_15EURACOS());
 		machine.addDiscount(new Discount_FREE1());
 		machine.addDiscount(new Discount_VERANO20());
