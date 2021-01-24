@@ -18,9 +18,9 @@ enum Platform {
 
 public class BallGame {
 	// Decide para qué plataform queremos generar el juego
-	private Platform platform = Platform.ANDROID;
+	// private Platform platform = Platform.ANDROID;
 	// private Platform platform = Platform.WINDOWS;
-	// private Platform platform = Platform.PLAYSTATION;
+	private Platform platform = Platform.PLAYSTATION;
 
 	private AndroidAPI android;
 	private WindowsAPI windows;
