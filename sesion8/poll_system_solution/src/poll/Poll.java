@@ -3,6 +3,8 @@ package poll;
 import java.util.ArrayList;
 import java.util.List;
 
+import poll.observers.PollObserver;
+
 public class Poll 
 {
 	private int yeses, nos;

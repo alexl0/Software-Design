@@ -10,17 +10,16 @@ public class CadaXVotos extends PollDecoratorAbstract {
 	public CadaXVotos(PollObserver pollObserver, int xVotos) {
 		super(pollObserver);
 		this.frequency=xVotos;
+		this.counter=xVotos;
 	}
 
 	@Override
 	boolean abstractCondicion(Poll poll) {
 		if (counter == frequency) {
 			counter = 1;
-			System.out.println(counter+", "+frequency+"true");
 			return true;
 		}else {
 			counter++;
-			System.out.println(counter+", "+frequency+"false");
 			return false;
 		}
 	}
