@@ -9,18 +9,15 @@ import platform.*;
  * plataformas.
  */
 
-public class BallGame 
-{
+public class BallGame {
 	// Decide para qué plataform queremos generar el juego
 	private Platform platform;
-	
-	public BallGame(Platform platform)
-	{
+
+	public BallGame(Platform platform) {
 		this.platform = platform;
 	}
-	
-	public void play() 
-	{
+
+	public void play() {
 		Image2D image = platform.loadImage("ball.png");
 
 		// lógica principal del juego

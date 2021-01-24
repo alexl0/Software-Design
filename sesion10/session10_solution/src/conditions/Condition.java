@@ -1,6 +1,5 @@
 package conditions;
 
-public interface Condition 
-{
+public interface Condition {
 	public boolean isTrue(String value);
 }

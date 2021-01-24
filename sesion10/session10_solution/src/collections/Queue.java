@@ -2,43 +2,36 @@ package collections;
 
 import java.util.*;
 
-public class Queue 
-{
-    private List<String> elements = new ArrayList<>();
+public class Queue {
+	private List<String> elements = new ArrayList<>();
 
-    public void add(String element) 
-    {
-        elements.add(element);
-    }
+	public void add(String element) {
+		elements.add(element);
+	}
 
-    public int size() 
-    {	
-        return elements.size();
-    }
-    
-    public Iterator iterator()
-    {
-    	return new QueueIterator();
-    }
+	public int size() {
+		return elements.size();
+	}
 
-    // Faltarían el resto de los métodos: peek, remove, clear...
-    
-    private class QueueIterator implements Iterator
-    {
-    	private int nextIndex;
+	public Iterator iterator() {
+		return new QueueIterator();
+	}
+
+	// Faltarían el resto de los métodos: peek, remove, clear...
+
+	private class QueueIterator implements Iterator {
+		private int nextIndex;
 
 		@Override
-		public boolean hasNext() 
-		{
+		public boolean hasNext() {
 			return nextIndex < elements.size();
 		}
 
 		@Override
-		public String next() 
-		{
+		public String next() {
 			if (!hasNext())
 				throw new NoSuchElementException();
-			return elements.get(nextIndex++); 
+			return elements.get(nextIndex++);
 		}
-    }
+	}
 }

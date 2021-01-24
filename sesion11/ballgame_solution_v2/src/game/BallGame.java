@@ -9,10 +9,8 @@ import platform.Image2D;
  * plataformas.
  */
 
-public abstract class BallGame 
-{
-	public void play() 
-	{
+public abstract class BallGame {
+	public void play() {
 		Image2D image = loadImage("ball.png");
 
 		// lógica principal del juego
@@ -22,7 +20,9 @@ public abstract class BallGame
 		}
 	}
 
-	protected abstract Image2D loadImage(String file); 
-	protected abstract Point getPosition(); 
-	protected abstract void drawBall(Image2D image, Point point); 
+	protected abstract Image2D loadImage(String file);
+
+	protected abstract Point getPosition();
+
+	protected abstract void drawBall(Image2D image, Point point);
 }

@@ -1,6 +1,5 @@
 package transformations;
 
-public interface Transformation 
-{
+public interface Transformation {
 	String transform(String value);
 }

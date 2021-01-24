@@ -5,22 +5,19 @@ import java.util.NoSuchElementException;
 
 import collections.Iterator;
 
-public class DatabaseIterator implements Iterator
-{
+public class DatabaseIterator implements Iterator {
 	private BufferedReader reader;
-	
-	public DatabaseIterator()
-	{
+
+	public DatabaseIterator() {
 		try {
-			reader = new BufferedReader(new FileReader("database.txt"));			
+			reader = new BufferedReader(new FileReader("database.txt"));
 		} catch (IOException e) {
 			throw new UncheckedIOException(e);
 		}
 	}
-	
+
 	@Override
-	public boolean hasNext() 
-	{
+	public boolean hasNext() {
 		try {
 			return reader.ready();
 		} catch (IOException e) {
@@ -29,8 +26,7 @@ public class DatabaseIterator implements Iterator
 	}
 
 	@Override
-	public String next() 
-	{
+	public String next() {
 		if (!hasNext())
 			throw new NoSuchElementException();
 		try {
