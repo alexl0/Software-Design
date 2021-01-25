@@ -1,0 +1,36 @@
+En la aplicación se implementa un juego en el que un personaje y
+una lista de enemigos se van moviendo. El comportamiento de 
+personaje y enemigos en cada acción va a depender del nivel:
+
+- En el nivel facil, el personaje se moverá automáticamente y el
+  jugador solo tiene que disparar. El enemigo en este nivel se
+  moverá en circulos.
+
+- En el nivel difícil, el personaje debe ser movido con el
+  teclado por el jugador, ademas de disparar. El enemigo se
+  moverá hacia el jugador continuamente.
+  
+Ademas, a medida que el juego transcurre se van a ir creando 
+nuevos enemigos:
+
+- En el nivel facil, se intentará crear un enemigo cada 4 turnos y
+  solo se creará si la posición de salida del enemigo está vacía.
+
+- En el nivel dificil, se creará un nuevo enemigo cada turno,
+  aunque este ocupada la posición de salida.
+  
+Ampliar el juego con un nivel intermedio y otro intermedio 
+avanzado.
+
+El nivel intermedio tendrá las siguientes características:
+
+- El jugador se comportará como en el nivel facil.
+- El enemigo se comportará como en el nivel dificil.
+- Los nuevos enemigos se creará igual que en el nivel facil.
+
+El nivel intermedio avanzado tendrá las siguientes
+características:
+
+- El jugador se comportará como en el nivel dificil.
+- El enemigo se comportará como en el nivel dificil.
+- Los nuevos enemigos se creará igual que en el nivel facil.
